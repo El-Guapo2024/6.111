@@ -50,5 +50,11 @@ typedef int32_t result_t;
 #define RESULT_OK      0
 #define RESULT_TIMEOUT -1
 #define RESULT_FAIL    -2
+#define why_1 -3
+#define why_2 -4
+#define why_3 -5
+#define why_4 -6
+#define why_5 -7
+
 
 #endif  // V8STDINT_H_

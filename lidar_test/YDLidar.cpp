@@ -221,7 +221,8 @@ result_t YDLidar::startScan(bool force, uint32_t timeout)
 result_t YDLidar::waitScanDot(uint32_t timeout) 
 {
   if (!isOpen())
-    return RESULT_FAIL;
+    printf("lol");
+    return why_1;
 
   int recvPos = 0;
   uint32_t startTs = millis();
@@ -258,7 +259,7 @@ result_t YDLidar::waitScanDot(uint32_t timeout)
       if (currentByte < 0)
         continue;
 
-//      printf("%02X ", uint8_t(currentByte));
+      printf("%02X ", uint8_t(currentByte));
 
       switch (recvPos)
       {
@@ -365,7 +366,7 @@ result_t YDLidar::waitScanDot(uint32_t timeout)
         if (currentByte < 0)
           continue;
 
-//        printf("%02X ", uint8_t(currentByte));
+        printf("%02X ", uint8_t(currentByte));
 
         //Compute checksum of point cloud portion
         if (intensity)
@@ -400,17 +401,17 @@ result_t YDLidar::waitScanDot(uint32_t timeout)
       }
 
       if (package_sample_sum != recvPos) {
-        return RESULT_FAIL;
+        return why_2; // RESULT_FAIL
       }
     } else {
-      return RESULT_FAIL;
+      return why_3;
     }
 
     CheckSumCal ^= SampleNumlAndCTCal;
     CheckSumCal ^= LastSampleAngleCal;
 
     if (CheckSumCal != CheckSum) {
-//      printf("CheckSum error cal: %04X cur: %04X\n", CheckSumCal, CheckSum);
+      printf("CheckSum error cal: %04X cur: %04X\n", CheckSumCal, CheckSum);
       CheckSumResult = false;
     } else {
       CheckSumResult = true;
@@ -463,7 +464,7 @@ result_t YDLidar::waitScanDot(uint32_t timeout)
     node.angle = LIDAR_RESP_MEASUREMENT_CHECKBIT;
     node.distance = 0;
     package_Sample_Index = 0;
-    return RESULT_FAIL;
+    return why_4;
   }
 
   point.distance = node.distance;
