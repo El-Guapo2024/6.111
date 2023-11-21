@@ -21,19 +21,19 @@ assign sys_rst = btn[0];
 
 // This is the UART for the LiDAR
 // pmoda[0] will be TX pmodb[0] will be RX
-logic [7:0] btx_utx_data;
-logic btx_utx_start;
-logic utx_btx_done;
+logic [7:0] data_out_lidar;
+logic send_data_lidar;
+logic data_sent_lidar;
 
 uart_tx #(.CLOCKS_PER_BAUD(868)) myTXLiDAR (
     .clk(clk_100mhz),
-    .data_i(btx_utx_data),
-    .start_i(btx_utx_start),
-    .done_o(utx_btx_done),
+    .data_i(data_out_lidar),
+    .start_i(send_data_lidar),
+    .done_o(data_sent_lidar),
     .tx(pmoda[0]));
  
-logic [7:0] urx_brx_data;
-logic urx_brx_valid;
+logic [7:0] data_in_lidar;
+logic data_received_lidar;
 
 uart_rx #(.CLOCKS_PER_BAUD(868)) myRXLiDAR (
     .clk(clk_100mhz),
@@ -41,31 +41,41 @@ uart_rx #(.CLOCKS_PER_BAUD(868)) myRXLiDAR (
     .data_o(urx_brx_data),
     .valid_o(urx_brx_valid));
 
+LiDAR_Protocol myLiDAR_Protocol(
+  .clk_in(clk_100mhz),
+  .rst_in(sys_rst),
+  .rx_data(urx_brx_data),
+  .rx_valid(urx_brx_valid),
+  .tx_done(utx_btx_done),
+  .tx_data(btx_utx_data),
+  .tx_start(btx_utx_start));
+
+
 /*----------------------------------------------------------------------------------------------*/
 // From here below is the code for the uart 
 //
 /*----------------------------------------------------------------------------------------------*/
 // pmoda[1] will be TX pmodb[1] will be RX
 
-logic [7:0] btx_utx_data;
-logic btx_utx_start;
-logic utx_btx_done;
+logic [7:0] btx_utx_data_1;
+logic btx_utx_start_1;
+logic utx_btx_done_1;
 
 uart_tx #(.CLOCKS_PER_BAUD(868)) myTXIMU (
     .clk(clk_100mhz),
-    .data_i(btx_utx_data),
-    .start_i(btx_utx_start),
-    .done_o(utx_btx_done),
+    .data_i(btx_utx_data_1),
+    .start_i(btx_utx_start_1),
+    .done_o(utx_btx_done_1),
     .tx(pmoda[1]));
 
-logic [7:0] urx_brx_data;
-logic urx_brx_valid;
+logic [7:0] urx_brx_data_1;
+logic urx_brx_valid_1;
 
 uart_rx #(.CLOCKS_PER_BAUD(868)) myRXIMU (
     .clk(clk_100mhz),
     .rx(pmodb[1]),
-    .data_o(urx_brx_data),
-    .valid_o(urx_brx_valid));
+    .data_o(urx_brx_data_1),
+    .valid_o(urx_brx_valid_1));
 
 endmodule // top_level
 `default_nettype wire
