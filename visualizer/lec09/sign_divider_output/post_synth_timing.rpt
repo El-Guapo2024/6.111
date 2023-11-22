@@ -1,0 +1,854 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.1 (lin64) Build 3865809 Sun May  7 15:04:56 MDT 2023
+| Date         : Thu Oct  5 16:58:41 2023
+| Host         : worker running 64-bit Ubuntu 20.04.6 LTS
+| Command      : report_timing -file obj/post_synth_timing.rpt
+| Design       : top_level
+| Device       : 7s50-csga324
+| Speed File   : -1  PRODUCTION 1.23 2018-06-13
+| Design State : Synthesized
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Timing Report
+
+Slack (VIOLATED) :        -63.891ns  (required time - arrival time)
+  Source:                 divisor_reg[0]/C
+                            (rising edge-triggered cell FDRE clocked by gclk  {rise@0.000ns fall@4.000ns period=10.000ns})
+  Destination:            quotient_reg[0]/D
+                            (rising edge-triggered cell FDRE clocked by gclk  {rise@0.000ns fall@4.000ns period=10.000ns})
+  Path Group:             gclk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (gclk rise@10.000ns - gclk rise@0.000ns)
+  Data Path Delay:        73.757ns  (logic 54.038ns (73.265%)  route 19.719ns (26.735%))
+  Logic Levels:           266  (CARRY4=252 LUT2=1 LUT3=13)
+  Clock Path Skew:        -0.145ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.660ns = ( 12.660 - 10.000 ) 
+    Source Clock Delay      (SCD):    2.920ns
+    Clock Pessimism Removal (CPR):    0.115ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock gclk rise edge)       0.000     0.000 r  
+    N15                                               0.000     0.000 r  clk_100mhz (IN)
+                         net (fo=0)                   0.000     0.000    clk_100mhz
+    N15                  IBUF (Prop_ibuf_I_O)         1.440     1.440 r  clk_100mhz_IBUF_inst/O
+                         net (fo=1, unplaced)         0.800     2.240    clk_100mhz_IBUF
+                         BUFG (Prop_bufg_I_O)         0.096     2.336 r  clk_100mhz_IBUF_BUFG_inst/O
+                         net (fo=125, unplaced)       0.584     2.920    clk_100mhz_IBUF_BUFG
+                         FDRE                                         r  divisor_reg[0]/C
+  -------------------------------------------------------------------    -------------------
+                         FDRE (Prop_fdre_C_Q)         0.456     3.376 r  divisor_reg[0]/Q
+                         net (fo=32, unplaced)        0.541     3.917    divisor[0]
+                         LUT2 (Prop_lut2_I0_O)        0.295     4.212 r  quotient[31]_i_37/O
+                         net (fo=1, unplaced)         0.000     4.212    quotient[31]_i_37_n_0
+                         CARRY4 (Prop_carry4_S[0]_CO[3])
+                                                      0.532     4.744 r  quotient_reg[31]_i_22/CO[3]
+                         net (fo=1, unplaced)         0.009     4.753    quotient_reg[31]_i_22_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.867 r  quotient_reg[31]_i_13/CO[3]
+                         net (fo=1, unplaced)         0.000     4.867    quotient_reg[31]_i_13_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.981 r  quotient_reg[31]_i_4/CO[3]
+                         net (fo=1, unplaced)         0.000     4.981    quotient_reg[31]_i_4_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     5.095 r  quotient_reg[31]_i_3/CO[3]
+                         net (fo=1, unplaced)         0.000     5.095    quotient_reg[31]_i_3_n_0
+                         CARRY4 (Prop_carry4_CI_CO[0])
+                                                      0.293     5.388 r  quotient_reg[31]_i_2/CO[0]
+                         net (fo=20, unplaced)        0.371     5.759    quotient_reg[31]_i_2_n_3
+                         LUT3 (Prop_lut3_I0_O)        0.367     6.126 r  quotient[30]_i_22/O
+                         net (fo=1, unplaced)         0.000     6.126    quotient[30]_i_22_n_0
+                         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550     6.676 r  quotient_reg[30]_i_15/CO[3]
+                         net (fo=1, unplaced)         0.009     6.685    quotient_reg[30]_i_15_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     6.799 r  quotient_reg[30]_i_10/CO[3]
+                         net (fo=1, unplaced)         0.000     6.799    quotient_reg[30]_i_10_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     6.913 r  quotient_reg[30]_i_5/CO[3]
+                         net (fo=1, unplaced)         0.000     6.913    quotient_reg[30]_i_5_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     7.027 r  quotient_reg[30]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000     7.027    quotient_reg[30]_i_2_n_0
+                         CARRY4 (Prop_carry4_CI_CO[2])
+                                                      0.250     7.277 r  quotient_reg[30]_i_1/CO[2]
+                         net (fo=22, unplaced)        0.514     7.791    quotient_reg[30]_i_1_n_1
+                         LUT3 (Prop_lut3_I0_O)        0.310     8.101 r  quotient[29]_i_23/O
+                         net (fo=1, unplaced)         0.000     8.101    quotient[29]_i_23_n_0
+                         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550     8.651 r  quotient_reg[29]_i_16/CO[3]
+                         net (fo=1, unplaced)         0.009     8.660    quotient_reg[29]_i_16_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     8.774 r  quotient_reg[29]_i_11/CO[3]
+                         net (fo=1, unplaced)         0.000     8.774    quotient_reg[29]_i_11_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     8.888 r  quotient_reg[29]_i_6/CO[3]
+                         net (fo=1, unplaced)         0.000     8.888    quotient_reg[29]_i_6_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     9.002 r  quotient_reg[29]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000     9.002    quotient_reg[29]_i_2_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     9.116 r  quotient_reg[29]_i_1/CO[3]
+                         net (fo=24, unplaced)        0.982    10.098    quotient_reg[29]_i_1_n_0
+                         LUT3 (Prop_lut3_I0_O)        0.124    10.222 r  quotient[28]_i_25/O
+                         net (fo=1, unplaced)         0.000    10.222    quotient[28]_i_25_n_0
+                         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550    10.772 r  quotient_reg[28]_i_18/CO[3]
+                         net (fo=1, unplaced)         0.009    10.781    quotient_reg[28]_i_18_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    10.895 r  quotient_reg[28]_i_13/CO[3]
+                         net (fo=1, unplaced)         0.000    10.895    quotient_reg[28]_i_13_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    11.009 r  quotient_reg[28]_i_8/CO[3]
+                         net (fo=1, unplaced)         0.000    11.009    quotient_reg[28]_i_8_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    11.123 r  quotient_reg[28]_i_3/CO[3]
+                         net (fo=1, unplaced)         0.000    11.123    quotient_reg[28]_i_3_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    11.237 r  quotient_reg[28]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000    11.237    quotient_reg[28]_i_2_n_0
+                         CARRY4 (Prop_carry4_CI_CO[0])
+                                                      0.293    11.530 r  quotient_reg[28]_i_1/CO[0]
+                         net (fo=26, unplaced)        0.377    11.907    quotient_reg[28]_i_1_n_3
+                         LUT3 (Prop_lut3_I0_O)        0.367    12.274 r  quotient[27]_i_26/O
+                         net (fo=1, unplaced)         0.000    12.274    quotient[27]_i_26_n_0
+                         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550    12.824 r  quotient_reg[27]_i_19/CO[3]
+                         net (fo=1, unplaced)         0.009    12.833    quotient_reg[27]_i_19_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    12.947 r  quotient_reg[27]_i_14/CO[3]
+                         net (fo=1, unplaced)         0.000    12.947    quotient_reg[27]_i_14_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    13.061 r  quotient_reg[27]_i_9/CO[3]
+                         net (fo=1, unplaced)         0.000    13.061    quotient_reg[27]_i_9_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    13.175 r  quotient_reg[27]_i_4/CO[3]
+                         net (fo=1, unplaced)         0.000    13.175    quotient_reg[27]_i_4_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    13.289 r  quotient_reg[27]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000    13.289    quotient_reg[27]_i_2_n_0
+                         CARRY4 (Prop_carry4_CI_CO[1])
+                                                      0.178    13.467 r  quotient_reg[27]_i_1/CO[1]
+                         net (fo=28, unplaced)        0.593    14.060    quotient_reg[27]_i_1_n_2
+                         CARRY4 (Prop_carry4_CYINIT_CO[3])
+                                                      0.788    14.848 r  quotient_reg[26]_i_20/CO[3]
+                         net (fo=1, unplaced)         0.009    14.857    quotient_reg[26]_i_20_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    14.971 r  quotient_reg[26]_i_15/CO[3]
+                         net (fo=1, unplaced)         0.000    14.971    quotient_reg[26]_i_15_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    15.085 r  quotient_reg[26]_i_10/CO[3]
+                         net (fo=1, unplaced)         0.000    15.085    quotient_reg[26]_i_10_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    15.199 r  quotient_reg[26]_i_5/CO[3]
+                         net (fo=1, unplaced)         0.000    15.199    quotient_reg[26]_i_5_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    15.313 r  quotient_reg[26]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000    15.313    quotient_reg[26]_i_2_n_0
+                         CARRY4 (Prop_carry4_CI_CO[2])
+                                                      0.250    15.563 r  quotient_reg[26]_i_1/CO[2]
+                         net (fo=30, unplaced)        0.522    16.085    quotient_reg[26]_i_1_n_1
+                         LUT3 (Prop_lut3_I0_O)        0.310    16.395 r  quotient[25]_i_28/O
+                         net (fo=1, unplaced)         0.000    16.395    quotient[25]_i_28_n_0
+                         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550    16.945 r  quotient_reg[25]_i_21/CO[3]
+                         net (fo=1, unplaced)         0.009    16.954    quotient_reg[25]_i_21_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    17.068 r  quotient_reg[25]_i_16/CO[3]
+                         net (fo=1, unplaced)         0.000    17.068    quotient_reg[25]_i_16_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    17.182 r  quotient_reg[25]_i_11/CO[3]
+                         net (fo=1, unplaced)         0.000    17.182    quotient_reg[25]_i_11_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    17.296 r  quotient_reg[25]_i_6/CO[3]
+                         net (fo=1, unplaced)         0.000    17.296    quotient_reg[25]_i_6_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    17.410 r  quotient_reg[25]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000    17.410    quotient_reg[25]_i_2_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    17.524 r  quotient_reg[25]_i_1/CO[3]
+                         net (fo=32, unplaced)        0.989    18.513    quotient_reg[25]_i_1_n_0
+                         LUT3 (Prop_lut3_I0_O)        0.124    18.637 r  quotient[24]_i_30/O
+                         net (fo=1, unplaced)         0.000    18.637    quotient[24]_i_30_n_0
+                         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550    19.187 r  quotient_reg[24]_i_23/CO[3]
+                         net (fo=1, unplaced)         0.009    19.196    quotient_reg[24]_i_23_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    19.310 r  quotient_reg[24]_i_18/CO[3]
+                         net (fo=1, unplaced)         0.000    19.310    quotient_reg[24]_i_18_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    19.424 r  quotient_reg[24]_i_13/CO[3]
+                         net (fo=1, unplaced)         0.000    19.424    quotient_reg[24]_i_13_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    19.538 r  quotient_reg[24]_i_8/CO[3]
+                         net (fo=1, unplaced)         0.000    19.538    quotient_reg[24]_i_8_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    19.652 r  quotient_reg[24]_i_3/CO[3]
+                         net (fo=1, unplaced)         0.000    19.652    quotient_reg[24]_i_3_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    19.766 r  quotient_reg[24]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000    19.766    quotient_reg[24]_i_2_n_0
+                         CARRY4 (Prop_carry4_CI_CO[0])
+                                                      0.293    20.059 r  quotient_reg[24]_i_1/CO[0]
+                         net (fo=34, unplaced)        0.384    20.443    quotient_reg[24]_i_1_n_3
+                         LUT3 (Prop_lut3_I0_O)        0.367    20.810 r  quotient[23]_i_31/O
+                         net (fo=1, unplaced)         0.000    20.810    quotient[23]_i_31_n_0
+                         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550    21.360 r  quotient_reg[23]_i_24/CO[3]
+                         net (fo=1, unplaced)         0.009    21.369    quotient_reg[23]_i_24_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    21.483 r  quotient_reg[23]_i_19/CO[3]
+                         net (fo=1, unplaced)         0.000    21.483    quotient_reg[23]_i_19_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    21.597 r  quotient_reg[23]_i_14/CO[3]
+                         net (fo=1, unplaced)         0.000    21.597    quotient_reg[23]_i_14_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    21.711 r  quotient_reg[23]_i_9/CO[3]
+                         net (fo=1, unplaced)         0.000    21.711    quotient_reg[23]_i_9_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    21.825 r  quotient_reg[23]_i_4/CO[3]
+                         net (fo=1, unplaced)         0.000    21.825    quotient_reg[23]_i_4_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    21.939 r  quotient_reg[23]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000    21.939    quotient_reg[23]_i_2_n_0
+                         CARRY4 (Prop_carry4_CI_CO[1])
+                                                      0.178    22.117 r  quotient_reg[23]_i_1/CO[1]
+                         net (fo=36, unplaced)        0.599    22.716    quotient_reg[23]_i_1_n_2
+                         CARRY4 (Prop_carry4_CYINIT_CO[3])
+                                                      0.788    23.504 r  quotient_reg[22]_i_25/CO[3]
+                         net (fo=1, unplaced)         0.009    23.513    quotient_reg[22]_i_25_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    23.627 r  quotient_reg[22]_i_20/CO[3]
+                         net (fo=1, unplaced)         0.000    23.627    quotient_reg[22]_i_20_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    23.741 r  quotient_reg[22]_i_15/CO[3]
+                         net (fo=1, unplaced)         0.000    23.741    quotient_reg[22]_i_15_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    23.855 r  quotient_reg[22]_i_10/CO[3]
+                         net (fo=1, unplaced)         0.000    23.855    quotient_reg[22]_i_10_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    23.969 r  quotient_reg[22]_i_5/CO[3]
+                         net (fo=1, unplaced)         0.000    23.969    quotient_reg[22]_i_5_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    24.083 r  quotient_reg[22]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000    24.083    quotient_reg[22]_i_2_n_0
+                         CARRY4 (Prop_carry4_CI_CO[2])
+                                                      0.250    24.333 r  quotient_reg[22]_i_1/CO[2]
+                         net (fo=38, unplaced)        0.527    24.860    quotient_reg[22]_i_1_n_1
+                         LUT3 (Prop_lut3_I0_O)        0.310    25.170 r  quotient[21]_i_33/O
+                         net (fo=1, unplaced)         0.000    25.170    quotient[21]_i_33_n_0
+                         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550    25.720 r  quotient_reg[21]_i_26/CO[3]
+                         net (fo=1, unplaced)         0.009    25.729    quotient_reg[21]_i_26_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    25.843 r  quotient_reg[21]_i_21/CO[3]
+                         net (fo=1, unplaced)         0.000    25.843    quotient_reg[21]_i_21_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    25.957 r  quotient_reg[21]_i_16/CO[3]
+                         net (fo=1, unplaced)         0.000    25.957    quotient_reg[21]_i_16_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    26.071 r  quotient_reg[21]_i_11/CO[3]
+                         net (fo=1, unplaced)         0.000    26.071    quotient_reg[21]_i_11_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    26.185 r  quotient_reg[21]_i_6/CO[3]
+                         net (fo=1, unplaced)         0.000    26.185    quotient_reg[21]_i_6_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    26.299 r  quotient_reg[21]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000    26.299    quotient_reg[21]_i_2_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    26.413 r  quotient_reg[21]_i_1/CO[3]
+                         net (fo=40, unplaced)        0.995    27.408    quotient_reg[21]_i_1_n_0
+                         LUT3 (Prop_lut3_I0_O)        0.124    27.532 r  quotient[20]_i_35/O
+                         net (fo=1, unplaced)         0.000    27.532    quotient[20]_i_35_n_0
+                         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550    28.082 r  quotient_reg[20]_i_28/CO[3]
+                         net (fo=1, unplaced)         0.009    28.091    quotient_reg[20]_i_28_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    28.205 r  quotient_reg[20]_i_23/CO[3]
+                         net (fo=1, unplaced)         0.000    28.205    quotient_reg[20]_i_23_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    28.319 r  quotient_reg[20]_i_18/CO[3]
+                         net (fo=1, unplaced)         0.000    28.319    quotient_reg[20]_i_18_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    28.433 r  quotient_reg[20]_i_13/CO[3]
+                         net (fo=1, unplaced)         0.000    28.433    quotient_reg[20]_i_13_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    28.547 r  quotient_reg[20]_i_8/CO[3]
+                         net (fo=1, unplaced)         0.000    28.547    quotient_reg[20]_i_8_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    28.661 r  quotient_reg[20]_i_3/CO[3]
+                         net (fo=1, unplaced)         0.000    28.661    quotient_reg[20]_i_3_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    28.775 r  quotient_reg[20]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000    28.775    quotient_reg[20]_i_2_n_0
+                         CARRY4 (Prop_carry4_CI_CO[0])
+                                                      0.293    29.068 r  quotient_reg[20]_i_1/CO[0]
+                         net (fo=42, unplaced)        0.389    29.457    quotient_reg[20]_i_1_n_3
+                         LUT3 (Prop_lut3_I0_O)        0.367    29.824 r  quotient[19]_i_36/O
+                         net (fo=1, unplaced)         0.000    29.824    quotient[19]_i_36_n_0
+                         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550    30.374 r  quotient_reg[19]_i_29/CO[3]
+                         net (fo=1, unplaced)         0.009    30.383    quotient_reg[19]_i_29_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    30.497 r  quotient_reg[19]_i_24/CO[3]
+                         net (fo=1, unplaced)         0.000    30.497    quotient_reg[19]_i_24_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    30.611 r  quotient_reg[19]_i_19/CO[3]
+                         net (fo=1, unplaced)         0.000    30.611    quotient_reg[19]_i_19_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    30.725 r  quotient_reg[19]_i_14/CO[3]
+                         net (fo=1, unplaced)         0.000    30.725    quotient_reg[19]_i_14_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    30.839 r  quotient_reg[19]_i_9/CO[3]
+                         net (fo=1, unplaced)         0.000    30.839    quotient_reg[19]_i_9_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    30.953 r  quotient_reg[19]_i_4/CO[3]
+                         net (fo=1, unplaced)         0.000    30.953    quotient_reg[19]_i_4_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    31.067 r  quotient_reg[19]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000    31.067    quotient_reg[19]_i_2_n_0
+                         CARRY4 (Prop_carry4_CI_CO[1])
+                                                      0.178    31.245 r  quotient_reg[19]_i_1/CO[1]
+                         net (fo=44, unplaced)        0.604    31.849    quotient_reg[19]_i_1_n_2
+                         CARRY4 (Prop_carry4_CYINIT_CO[3])
+                                                      0.788    32.637 r  quotient_reg[18]_i_30/CO[3]
+                         net (fo=1, unplaced)         0.009    32.646    quotient_reg[18]_i_30_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    32.760 r  quotient_reg[18]_i_25/CO[3]
+                         net (fo=1, unplaced)         0.000    32.760    quotient_reg[18]_i_25_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    32.874 r  quotient_reg[18]_i_20/CO[3]
+                         net (fo=1, unplaced)         0.000    32.874    quotient_reg[18]_i_20_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    32.988 r  quotient_reg[18]_i_15/CO[3]
+                         net (fo=1, unplaced)         0.000    32.988    quotient_reg[18]_i_15_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    33.102 r  quotient_reg[18]_i_10/CO[3]
+                         net (fo=1, unplaced)         0.000    33.102    quotient_reg[18]_i_10_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    33.216 r  quotient_reg[18]_i_5/CO[3]
+                         net (fo=1, unplaced)         0.000    33.216    quotient_reg[18]_i_5_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    33.330 r  quotient_reg[18]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000    33.330    quotient_reg[18]_i_2_n_0
+                         CARRY4 (Prop_carry4_CI_CO[2])
+                                                      0.250    33.580 r  quotient_reg[18]_i_1/CO[2]
+                         net (fo=46, unplaced)        0.532    34.112    quotient_reg[18]_i_1_n_1
+                         LUT3 (Prop_lut3_I0_O)        0.310    34.422 r  quotient[17]_i_38/O
+                         net (fo=1, unplaced)         0.000    34.422    quotient[17]_i_38_n_0
+                         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550    34.972 r  quotient_reg[17]_i_31/CO[3]
+                         net (fo=1, unplaced)         0.009    34.981    quotient_reg[17]_i_31_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    35.095 r  quotient_reg[17]_i_26/CO[3]
+                         net (fo=1, unplaced)         0.000    35.095    quotient_reg[17]_i_26_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    35.209 r  quotient_reg[17]_i_21/CO[3]
+                         net (fo=1, unplaced)         0.000    35.209    quotient_reg[17]_i_21_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    35.323 r  quotient_reg[17]_i_16/CO[3]
+                         net (fo=1, unplaced)         0.000    35.323    quotient_reg[17]_i_16_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    35.437 r  quotient_reg[17]_i_11/CO[3]
+                         net (fo=1, unplaced)         0.000    35.437    quotient_reg[17]_i_11_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    35.551 r  quotient_reg[17]_i_6/CO[3]
+                         net (fo=1, unplaced)         0.000    35.551    quotient_reg[17]_i_6_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    35.665 r  quotient_reg[17]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000    35.665    quotient_reg[17]_i_2_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    35.779 r  quotient_reg[17]_i_1/CO[3]
+                         net (fo=48, unplaced)        0.999    36.778    quotient_reg[17]_i_1_n_0
+                         LUT3 (Prop_lut3_I0_O)        0.124    36.902 r  quotient[16]_i_40/O
+                         net (fo=1, unplaced)         0.000    36.902    quotient[16]_i_40_n_0
+                         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550    37.452 r  quotient_reg[16]_i_33/CO[3]
+                         net (fo=1, unplaced)         0.009    37.461    quotient_reg[16]_i_33_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    37.575 r  quotient_reg[16]_i_28/CO[3]
+                         net (fo=1, unplaced)         0.000    37.575    quotient_reg[16]_i_28_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    37.689 r  quotient_reg[16]_i_23/CO[3]
+                         net (fo=1, unplaced)         0.000    37.689    quotient_reg[16]_i_23_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    37.803 r  quotient_reg[16]_i_18/CO[3]
+                         net (fo=1, unplaced)         0.000    37.803    quotient_reg[16]_i_18_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    37.917 r  quotient_reg[16]_i_13/CO[3]
+                         net (fo=1, unplaced)         0.000    37.917    quotient_reg[16]_i_13_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    38.031 r  quotient_reg[16]_i_8/CO[3]
+                         net (fo=1, unplaced)         0.000    38.031    quotient_reg[16]_i_8_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    38.145 r  quotient_reg[16]_i_3/CO[3]
+                         net (fo=1, unplaced)         0.000    38.145    quotient_reg[16]_i_3_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    38.259 r  quotient_reg[16]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000    38.259    quotient_reg[16]_i_2_n_0
+                         CARRY4 (Prop_carry4_CI_CO[0])
+                                                      0.293    38.552 r  quotient_reg[16]_i_1/CO[0]
+                         net (fo=50, unplaced)        0.393    38.945    quotient_reg[16]_i_1_n_3
+                         LUT3 (Prop_lut3_I0_O)        0.367    39.312 r  quotient[15]_i_41/O
+                         net (fo=1, unplaced)         0.000    39.312    quotient[15]_i_41_n_0
+                         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550    39.862 r  quotient_reg[15]_i_34/CO[3]
+                         net (fo=1, unplaced)         0.009    39.871    quotient_reg[15]_i_34_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    39.985 r  quotient_reg[15]_i_29/CO[3]
+                         net (fo=1, unplaced)         0.000    39.985    quotient_reg[15]_i_29_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    40.099 r  quotient_reg[15]_i_24/CO[3]
+                         net (fo=1, unplaced)         0.000    40.099    quotient_reg[15]_i_24_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    40.213 r  quotient_reg[15]_i_19/CO[3]
+                         net (fo=1, unplaced)         0.000    40.213    quotient_reg[15]_i_19_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    40.327 r  quotient_reg[15]_i_14/CO[3]
+                         net (fo=1, unplaced)         0.000    40.327    quotient_reg[15]_i_14_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    40.441 r  quotient_reg[15]_i_9/CO[3]
+                         net (fo=1, unplaced)         0.000    40.441    quotient_reg[15]_i_9_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    40.555 r  quotient_reg[15]_i_4/CO[3]
+                         net (fo=1, unplaced)         0.000    40.555    quotient_reg[15]_i_4_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    40.669 r  quotient_reg[15]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000    40.669    quotient_reg[15]_i_2_n_0
+                         CARRY4 (Prop_carry4_CI_CO[1])
+                                                      0.178    40.847 r  quotient_reg[15]_i_1/CO[1]
+                         net (fo=52, unplaced)        0.608    41.455    quotient_reg[15]_i_1_n_2
+                         CARRY4 (Prop_carry4_CYINIT_CO[3])
+                                                      0.788    42.243 r  quotient_reg[14]_i_35/CO[3]
+                         net (fo=1, unplaced)         0.009    42.252    quotient_reg[14]_i_35_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    42.366 r  quotient_reg[14]_i_30/CO[3]
+                         net (fo=1, unplaced)         0.000    42.366    quotient_reg[14]_i_30_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    42.480 r  quotient_reg[14]_i_25/CO[3]
+                         net (fo=1, unplaced)         0.000    42.480    quotient_reg[14]_i_25_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    42.594 r  quotient_reg[14]_i_20/CO[3]
+                         net (fo=1, unplaced)         0.000    42.594    quotient_reg[14]_i_20_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    42.708 r  quotient_reg[14]_i_15/CO[3]
+                         net (fo=1, unplaced)         0.000    42.708    quotient_reg[14]_i_15_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    42.822 r  quotient_reg[14]_i_10/CO[3]
+                         net (fo=1, unplaced)         0.000    42.822    quotient_reg[14]_i_10_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    42.936 r  quotient_reg[14]_i_5/CO[3]
+                         net (fo=1, unplaced)         0.000    42.936    quotient_reg[14]_i_5_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    43.050 r  quotient_reg[14]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000    43.050    quotient_reg[14]_i_2_n_0
+                         CARRY4 (Prop_carry4_CI_CO[1])
+                                                      0.178    43.228 r  quotient_reg[14]_i_1/CO[1]
+                         net (fo=52, unplaced)        0.608    43.836    quotient_reg[14]_i_1_n_2
+                         CARRY4 (Prop_carry4_CYINIT_CO[3])
+                                                      0.788    44.624 r  quotient_reg[13]_i_35/CO[3]
+                         net (fo=1, unplaced)         0.009    44.633    quotient_reg[13]_i_35_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    44.747 r  quotient_reg[13]_i_30/CO[3]
+                         net (fo=1, unplaced)         0.000    44.747    quotient_reg[13]_i_30_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    44.861 r  quotient_reg[13]_i_25/CO[3]
+                         net (fo=1, unplaced)         0.000    44.861    quotient_reg[13]_i_25_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    44.975 r  quotient_reg[13]_i_20/CO[3]
+                         net (fo=1, unplaced)         0.000    44.975    quotient_reg[13]_i_20_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    45.089 r  quotient_reg[13]_i_15/CO[3]
+                         net (fo=1, unplaced)         0.000    45.089    quotient_reg[13]_i_15_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    45.203 r  quotient_reg[13]_i_10/CO[3]
+                         net (fo=1, unplaced)         0.000    45.203    quotient_reg[13]_i_10_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    45.317 r  quotient_reg[13]_i_5/CO[3]
+                         net (fo=1, unplaced)         0.000    45.317    quotient_reg[13]_i_5_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    45.431 r  quotient_reg[13]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000    45.431    quotient_reg[13]_i_2_n_0
+                         CARRY4 (Prop_carry4_CI_CO[1])
+                                                      0.178    45.609 r  quotient_reg[13]_i_1/CO[1]
+                         net (fo=52, unplaced)        0.608    46.217    quotient_reg[13]_i_1_n_2
+                         CARRY4 (Prop_carry4_CYINIT_CO[3])
+                                                      0.788    47.005 r  quotient_reg[12]_i_35/CO[3]
+                         net (fo=1, unplaced)         0.009    47.014    quotient_reg[12]_i_35_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    47.128 r  quotient_reg[12]_i_30/CO[3]
+                         net (fo=1, unplaced)         0.000    47.128    quotient_reg[12]_i_30_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    47.242 r  quotient_reg[12]_i_25/CO[3]
+                         net (fo=1, unplaced)         0.000    47.242    quotient_reg[12]_i_25_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    47.356 r  quotient_reg[12]_i_20/CO[3]
+                         net (fo=1, unplaced)         0.000    47.356    quotient_reg[12]_i_20_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    47.470 r  quotient_reg[12]_i_15/CO[3]
+                         net (fo=1, unplaced)         0.000    47.470    quotient_reg[12]_i_15_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    47.584 r  quotient_reg[12]_i_10/CO[3]
+                         net (fo=1, unplaced)         0.000    47.584    quotient_reg[12]_i_10_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    47.698 r  quotient_reg[12]_i_5/CO[3]
+                         net (fo=1, unplaced)         0.000    47.698    quotient_reg[12]_i_5_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    47.812 r  quotient_reg[12]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000    47.812    quotient_reg[12]_i_2_n_0
+                         CARRY4 (Prop_carry4_CI_CO[1])
+                                                      0.178    47.990 r  quotient_reg[12]_i_1/CO[1]
+                         net (fo=52, unplaced)        0.608    48.598    quotient_reg[12]_i_1_n_2
+                         CARRY4 (Prop_carry4_CYINIT_CO[3])
+                                                      0.788    49.386 r  quotient_reg[11]_i_35/CO[3]
+                         net (fo=1, unplaced)         0.009    49.395    quotient_reg[11]_i_35_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    49.509 r  quotient_reg[11]_i_30/CO[3]
+                         net (fo=1, unplaced)         0.000    49.509    quotient_reg[11]_i_30_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    49.623 r  quotient_reg[11]_i_25/CO[3]
+                         net (fo=1, unplaced)         0.000    49.623    quotient_reg[11]_i_25_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    49.737 r  quotient_reg[11]_i_20/CO[3]
+                         net (fo=1, unplaced)         0.000    49.737    quotient_reg[11]_i_20_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    49.851 r  quotient_reg[11]_i_15/CO[3]
+                         net (fo=1, unplaced)         0.000    49.851    quotient_reg[11]_i_15_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    49.965 r  quotient_reg[11]_i_10/CO[3]
+                         net (fo=1, unplaced)         0.000    49.965    quotient_reg[11]_i_10_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    50.079 r  quotient_reg[11]_i_5/CO[3]
+                         net (fo=1, unplaced)         0.000    50.079    quotient_reg[11]_i_5_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    50.193 r  quotient_reg[11]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000    50.193    quotient_reg[11]_i_2_n_0
+                         CARRY4 (Prop_carry4_CI_CO[1])
+                                                      0.178    50.371 r  quotient_reg[11]_i_1/CO[1]
+                         net (fo=52, unplaced)        0.608    50.979    quotient_reg[11]_i_1_n_2
+                         CARRY4 (Prop_carry4_CYINIT_CO[3])
+                                                      0.788    51.767 r  quotient_reg[10]_i_35/CO[3]
+                         net (fo=1, unplaced)         0.009    51.776    quotient_reg[10]_i_35_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    51.890 r  quotient_reg[10]_i_30/CO[3]
+                         net (fo=1, unplaced)         0.000    51.890    quotient_reg[10]_i_30_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    52.004 r  quotient_reg[10]_i_25/CO[3]
+                         net (fo=1, unplaced)         0.000    52.004    quotient_reg[10]_i_25_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    52.118 r  quotient_reg[10]_i_20/CO[3]
+                         net (fo=1, unplaced)         0.000    52.118    quotient_reg[10]_i_20_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    52.232 r  quotient_reg[10]_i_15/CO[3]
+                         net (fo=1, unplaced)         0.000    52.232    quotient_reg[10]_i_15_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    52.346 r  quotient_reg[10]_i_10/CO[3]
+                         net (fo=1, unplaced)         0.000    52.346    quotient_reg[10]_i_10_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    52.460 r  quotient_reg[10]_i_5/CO[3]
+                         net (fo=1, unplaced)         0.000    52.460    quotient_reg[10]_i_5_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    52.574 r  quotient_reg[10]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000    52.574    quotient_reg[10]_i_2_n_0
+                         CARRY4 (Prop_carry4_CI_CO[1])
+                                                      0.178    52.752 r  quotient_reg[10]_i_1/CO[1]
+                         net (fo=52, unplaced)        0.608    53.360    quotient_reg[10]_i_1_n_2
+                         CARRY4 (Prop_carry4_CYINIT_CO[3])
+                                                      0.788    54.148 r  quotient_reg[9]_i_35/CO[3]
+                         net (fo=1, unplaced)         0.009    54.157    quotient_reg[9]_i_35_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    54.271 r  quotient_reg[9]_i_30/CO[3]
+                         net (fo=1, unplaced)         0.000    54.271    quotient_reg[9]_i_30_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    54.385 r  quotient_reg[9]_i_25/CO[3]
+                         net (fo=1, unplaced)         0.000    54.385    quotient_reg[9]_i_25_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    54.499 r  quotient_reg[9]_i_20/CO[3]
+                         net (fo=1, unplaced)         0.000    54.499    quotient_reg[9]_i_20_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    54.613 r  quotient_reg[9]_i_15/CO[3]
+                         net (fo=1, unplaced)         0.000    54.613    quotient_reg[9]_i_15_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    54.727 r  quotient_reg[9]_i_10/CO[3]
+                         net (fo=1, unplaced)         0.000    54.727    quotient_reg[9]_i_10_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    54.841 r  quotient_reg[9]_i_5/CO[3]
+                         net (fo=1, unplaced)         0.000    54.841    quotient_reg[9]_i_5_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    54.955 r  quotient_reg[9]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000    54.955    quotient_reg[9]_i_2_n_0
+                         CARRY4 (Prop_carry4_CI_CO[1])
+                                                      0.178    55.133 r  quotient_reg[9]_i_1/CO[1]
+                         net (fo=52, unplaced)        0.608    55.741    quotient_reg[9]_i_1_n_2
+                         CARRY4 (Prop_carry4_CYINIT_CO[3])
+                                                      0.788    56.529 r  quotient_reg[8]_i_35/CO[3]
+                         net (fo=1, unplaced)         0.009    56.538    quotient_reg[8]_i_35_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    56.652 r  quotient_reg[8]_i_30/CO[3]
+                         net (fo=1, unplaced)         0.000    56.652    quotient_reg[8]_i_30_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    56.766 r  quotient_reg[8]_i_25/CO[3]
+                         net (fo=1, unplaced)         0.000    56.766    quotient_reg[8]_i_25_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    56.880 r  quotient_reg[8]_i_20/CO[3]
+                         net (fo=1, unplaced)         0.000    56.880    quotient_reg[8]_i_20_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    56.994 r  quotient_reg[8]_i_15/CO[3]
+                         net (fo=1, unplaced)         0.000    56.994    quotient_reg[8]_i_15_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    57.108 r  quotient_reg[8]_i_10/CO[3]
+                         net (fo=1, unplaced)         0.000    57.108    quotient_reg[8]_i_10_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    57.222 r  quotient_reg[8]_i_5/CO[3]
+                         net (fo=1, unplaced)         0.000    57.222    quotient_reg[8]_i_5_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    57.336 r  quotient_reg[8]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000    57.336    quotient_reg[8]_i_2_n_0
+                         CARRY4 (Prop_carry4_CI_CO[1])
+                                                      0.178    57.514 r  quotient_reg[8]_i_1/CO[1]
+                         net (fo=52, unplaced)        0.608    58.122    quotient_reg[8]_i_1_n_2
+                         CARRY4 (Prop_carry4_CYINIT_CO[3])
+                                                      0.788    58.910 r  quotient_reg[7]_i_35/CO[3]
+                         net (fo=1, unplaced)         0.009    58.919    quotient_reg[7]_i_35_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    59.033 r  quotient_reg[7]_i_30/CO[3]
+                         net (fo=1, unplaced)         0.000    59.033    quotient_reg[7]_i_30_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    59.147 r  quotient_reg[7]_i_25/CO[3]
+                         net (fo=1, unplaced)         0.000    59.147    quotient_reg[7]_i_25_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    59.261 r  quotient_reg[7]_i_20/CO[3]
+                         net (fo=1, unplaced)         0.000    59.261    quotient_reg[7]_i_20_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    59.375 r  quotient_reg[7]_i_15/CO[3]
+                         net (fo=1, unplaced)         0.000    59.375    quotient_reg[7]_i_15_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    59.489 r  quotient_reg[7]_i_10/CO[3]
+                         net (fo=1, unplaced)         0.000    59.489    quotient_reg[7]_i_10_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    59.603 r  quotient_reg[7]_i_5/CO[3]
+                         net (fo=1, unplaced)         0.000    59.603    quotient_reg[7]_i_5_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    59.717 r  quotient_reg[7]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000    59.717    quotient_reg[7]_i_2_n_0
+                         CARRY4 (Prop_carry4_CI_CO[1])
+                                                      0.178    59.895 r  quotient_reg[7]_i_1/CO[1]
+                         net (fo=52, unplaced)        0.608    60.503    quotient_reg[7]_i_1_n_2
+                         CARRY4 (Prop_carry4_CYINIT_CO[3])
+                                                      0.788    61.291 r  quotient_reg[6]_i_35/CO[3]
+                         net (fo=1, unplaced)         0.009    61.300    quotient_reg[6]_i_35_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    61.414 r  quotient_reg[6]_i_30/CO[3]
+                         net (fo=1, unplaced)         0.000    61.414    quotient_reg[6]_i_30_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    61.528 r  quotient_reg[6]_i_25/CO[3]
+                         net (fo=1, unplaced)         0.000    61.528    quotient_reg[6]_i_25_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    61.642 r  quotient_reg[6]_i_20/CO[3]
+                         net (fo=1, unplaced)         0.000    61.642    quotient_reg[6]_i_20_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    61.756 r  quotient_reg[6]_i_15/CO[3]
+                         net (fo=1, unplaced)         0.000    61.756    quotient_reg[6]_i_15_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    61.870 r  quotient_reg[6]_i_10/CO[3]
+                         net (fo=1, unplaced)         0.000    61.870    quotient_reg[6]_i_10_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    61.984 r  quotient_reg[6]_i_5/CO[3]
+                         net (fo=1, unplaced)         0.000    61.984    quotient_reg[6]_i_5_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    62.098 r  quotient_reg[6]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000    62.098    quotient_reg[6]_i_2_n_0
+                         CARRY4 (Prop_carry4_CI_CO[1])
+                                                      0.178    62.276 r  quotient_reg[6]_i_1/CO[1]
+                         net (fo=52, unplaced)        0.608    62.884    quotient_reg[6]_i_1_n_2
+                         CARRY4 (Prop_carry4_CYINIT_CO[3])
+                                                      0.788    63.672 r  quotient_reg[5]_i_35/CO[3]
+                         net (fo=1, unplaced)         0.009    63.681    quotient_reg[5]_i_35_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    63.795 r  quotient_reg[5]_i_30/CO[3]
+                         net (fo=1, unplaced)         0.000    63.795    quotient_reg[5]_i_30_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    63.909 r  quotient_reg[5]_i_25/CO[3]
+                         net (fo=1, unplaced)         0.000    63.909    quotient_reg[5]_i_25_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    64.023 r  quotient_reg[5]_i_20/CO[3]
+                         net (fo=1, unplaced)         0.000    64.023    quotient_reg[5]_i_20_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    64.137 r  quotient_reg[5]_i_15/CO[3]
+                         net (fo=1, unplaced)         0.000    64.137    quotient_reg[5]_i_15_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    64.251 r  quotient_reg[5]_i_10/CO[3]
+                         net (fo=1, unplaced)         0.000    64.251    quotient_reg[5]_i_10_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    64.365 r  quotient_reg[5]_i_5/CO[3]
+                         net (fo=1, unplaced)         0.000    64.365    quotient_reg[5]_i_5_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    64.479 r  quotient_reg[5]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000    64.479    quotient_reg[5]_i_2_n_0
+                         CARRY4 (Prop_carry4_CI_CO[1])
+                                                      0.178    64.657 r  quotient_reg[5]_i_1/CO[1]
+                         net (fo=52, unplaced)        0.608    65.265    quotient_reg[5]_i_1_n_2
+                         CARRY4 (Prop_carry4_CYINIT_CO[3])
+                                                      0.788    66.053 r  quotient_reg[4]_i_35/CO[3]
+                         net (fo=1, unplaced)         0.009    66.062    quotient_reg[4]_i_35_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    66.176 r  quotient_reg[4]_i_30/CO[3]
+                         net (fo=1, unplaced)         0.000    66.176    quotient_reg[4]_i_30_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    66.290 r  quotient_reg[4]_i_25/CO[3]
+                         net (fo=1, unplaced)         0.000    66.290    quotient_reg[4]_i_25_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    66.404 r  quotient_reg[4]_i_20/CO[3]
+                         net (fo=1, unplaced)         0.000    66.404    quotient_reg[4]_i_20_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    66.518 r  quotient_reg[4]_i_15/CO[3]
+                         net (fo=1, unplaced)         0.000    66.518    quotient_reg[4]_i_15_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    66.632 r  quotient_reg[4]_i_10/CO[3]
+                         net (fo=1, unplaced)         0.000    66.632    quotient_reg[4]_i_10_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    66.746 r  quotient_reg[4]_i_5/CO[3]
+                         net (fo=1, unplaced)         0.000    66.746    quotient_reg[4]_i_5_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    66.860 r  quotient_reg[4]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000    66.860    quotient_reg[4]_i_2_n_0
+                         CARRY4 (Prop_carry4_CI_CO[1])
+                                                      0.178    67.038 r  quotient_reg[4]_i_1/CO[1]
+                         net (fo=52, unplaced)        0.608    67.646    quotient_reg[4]_i_1_n_2
+                         CARRY4 (Prop_carry4_CYINIT_CO[3])
+                                                      0.788    68.434 r  quotient_reg[3]_i_35/CO[3]
+                         net (fo=1, unplaced)         0.009    68.443    quotient_reg[3]_i_35_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    68.557 r  quotient_reg[3]_i_30/CO[3]
+                         net (fo=1, unplaced)         0.000    68.557    quotient_reg[3]_i_30_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    68.671 r  quotient_reg[3]_i_25/CO[3]
+                         net (fo=1, unplaced)         0.000    68.671    quotient_reg[3]_i_25_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    68.785 r  quotient_reg[3]_i_20/CO[3]
+                         net (fo=1, unplaced)         0.000    68.785    quotient_reg[3]_i_20_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    68.899 r  quotient_reg[3]_i_15/CO[3]
+                         net (fo=1, unplaced)         0.000    68.899    quotient_reg[3]_i_15_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    69.013 r  quotient_reg[3]_i_10/CO[3]
+                         net (fo=1, unplaced)         0.000    69.013    quotient_reg[3]_i_10_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    69.127 r  quotient_reg[3]_i_5/CO[3]
+                         net (fo=1, unplaced)         0.000    69.127    quotient_reg[3]_i_5_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    69.241 r  quotient_reg[3]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000    69.241    quotient_reg[3]_i_2_n_0
+                         CARRY4 (Prop_carry4_CI_CO[1])
+                                                      0.178    69.419 r  quotient_reg[3]_i_1/CO[1]
+                         net (fo=52, unplaced)        0.608    70.027    quotient_reg[3]_i_1_n_2
+                         CARRY4 (Prop_carry4_CYINIT_CO[3])
+                                                      0.788    70.815 r  quotient_reg[2]_i_35/CO[3]
+                         net (fo=1, unplaced)         0.009    70.824    quotient_reg[2]_i_35_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    70.938 r  quotient_reg[2]_i_30/CO[3]
+                         net (fo=1, unplaced)         0.000    70.938    quotient_reg[2]_i_30_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    71.052 r  quotient_reg[2]_i_25/CO[3]
+                         net (fo=1, unplaced)         0.000    71.052    quotient_reg[2]_i_25_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    71.166 r  quotient_reg[2]_i_20/CO[3]
+                         net (fo=1, unplaced)         0.000    71.166    quotient_reg[2]_i_20_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    71.280 r  quotient_reg[2]_i_15/CO[3]
+                         net (fo=1, unplaced)         0.000    71.280    quotient_reg[2]_i_15_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    71.394 r  quotient_reg[2]_i_10/CO[3]
+                         net (fo=1, unplaced)         0.000    71.394    quotient_reg[2]_i_10_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    71.508 r  quotient_reg[2]_i_5/CO[3]
+                         net (fo=1, unplaced)         0.000    71.508    quotient_reg[2]_i_5_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    71.622 r  quotient_reg[2]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000    71.622    quotient_reg[2]_i_2_n_0
+                         CARRY4 (Prop_carry4_CI_CO[1])
+                                                      0.178    71.800 r  quotient_reg[2]_i_1/CO[1]
+                         net (fo=52, unplaced)        0.608    72.408    quotient_reg[2]_i_1_n_2
+                         CARRY4 (Prop_carry4_CYINIT_CO[3])
+                                                      0.788    73.196 r  quotient_reg[1]_i_35/CO[3]
+                         net (fo=1, unplaced)         0.009    73.205    quotient_reg[1]_i_35_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    73.319 r  quotient_reg[1]_i_30/CO[3]
+                         net (fo=1, unplaced)         0.000    73.319    quotient_reg[1]_i_30_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    73.433 r  quotient_reg[1]_i_25/CO[3]
+                         net (fo=1, unplaced)         0.000    73.433    quotient_reg[1]_i_25_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    73.547 r  quotient_reg[1]_i_20/CO[3]
+                         net (fo=1, unplaced)         0.000    73.547    quotient_reg[1]_i_20_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    73.661 r  quotient_reg[1]_i_15/CO[3]
+                         net (fo=1, unplaced)         0.000    73.661    quotient_reg[1]_i_15_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    73.775 r  quotient_reg[1]_i_10/CO[3]
+                         net (fo=1, unplaced)         0.000    73.775    quotient_reg[1]_i_10_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    73.889 r  quotient_reg[1]_i_5/CO[3]
+                         net (fo=1, unplaced)         0.000    73.889    quotient_reg[1]_i_5_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    74.003 r  quotient_reg[1]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000    74.003    quotient_reg[1]_i_2_n_0
+                         CARRY4 (Prop_carry4_CI_CO[1])
+                                                      0.178    74.181 r  quotient_reg[1]_i_1/CO[1]
+                         net (fo=52, unplaced)        0.608    74.789    quotient_reg[1]_i_1_n_2
+                         CARRY4 (Prop_carry4_CYINIT_CO[3])
+                                                      0.788    75.577 r  quotient_reg[0]_i_34/CO[3]
+                         net (fo=1, unplaced)         0.009    75.586    quotient_reg[0]_i_34_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    75.700 r  quotient_reg[0]_i_29/CO[3]
+                         net (fo=1, unplaced)         0.000    75.700    quotient_reg[0]_i_29_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    75.814 r  quotient_reg[0]_i_24/CO[3]
+                         net (fo=1, unplaced)         0.000    75.814    quotient_reg[0]_i_24_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    75.928 r  quotient_reg[0]_i_19/CO[3]
+                         net (fo=1, unplaced)         0.000    75.928    quotient_reg[0]_i_19_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    76.042 r  quotient_reg[0]_i_14/CO[3]
+                         net (fo=1, unplaced)         0.000    76.042    quotient_reg[0]_i_14_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    76.156 r  quotient_reg[0]_i_9/CO[3]
+                         net (fo=1, unplaced)         0.000    76.156    quotient_reg[0]_i_9_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    76.270 r  quotient_reg[0]_i_4/CO[3]
+                         net (fo=1, unplaced)         0.000    76.270    quotient_reg[0]_i_4_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    76.384 r  quotient_reg[0]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000    76.384    quotient_reg[0]_i_2_n_0
+                         CARRY4 (Prop_carry4_CI_CO[0])
+                                                      0.293    76.677 r  quotient_reg[0]_i_1/CO[0]
+                         net (fo=1, unplaced)         0.000    76.677    quotient_reg[0]_i_1_n_3
+                         FDRE                                         r  quotient_reg[0]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock gclk rise edge)      10.000    10.000 r  
+    N15                                               0.000    10.000 r  clk_100mhz (IN)
+                         net (fo=0)                   0.000    10.000    clk_100mhz
+    N15                  IBUF (Prop_ibuf_I_O)         1.370    11.370 r  clk_100mhz_IBUF_inst/O
+                         net (fo=1, unplaced)         0.760    12.130    clk_100mhz_IBUF
+                         BUFG (Prop_bufg_I_O)         0.091    12.221 r  clk_100mhz_IBUF_BUFG_inst/O
+                         net (fo=125, unplaced)       0.439    12.660    clk_100mhz_IBUF_BUFG
+                         FDRE                                         r  quotient_reg[0]/C
+                         clock pessimism              0.115    12.775    
+                         clock uncertainty           -0.035    12.740    
+                         FDRE (Setup_fdre_C_D)        0.046    12.786    quotient_reg[0]
+  -------------------------------------------------------------------
+                         required time                         12.786    
+                         arrival time                         -76.677    
+  -------------------------------------------------------------------
+                         slack                                -63.891    
+
+
+
+

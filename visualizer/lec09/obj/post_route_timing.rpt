@@ -1,0 +1,138 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.1 (lin64) Build 3865809 Sun May  7 15:04:56 MDT 2023
+| Date         : Thu Oct  5 17:44:38 2023
+| Host         : worker running 64-bit Ubuntu 20.04.6 LTS
+| Command      : report_timing -file obj/post_route_timing.rpt
+| Design       : top_level
+| Device       : 7s50-csga324
+| Speed File   : -1  PRODUCTION 1.23 2018-06-13
+| Design State : Routed
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Timing Report
+
+Slack (MET) :             0.007ns  (required time - arrival time)
+  Source:                 uut/divisor_reg[23][0]/C
+                            (rising edge-triggered cell FDRE clocked by gclk  {rise@0.000ns fall@4.000ns period=10.000ns})
+  Destination:            uut/p_reg[25][28]/D
+                            (rising edge-triggered cell FDRE clocked by gclk  {rise@0.000ns fall@4.000ns period=10.000ns})
+  Path Group:             gclk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (gclk rise@10.000ns - gclk rise@0.000ns)
+  Data Path Delay:        9.892ns  (logic 5.549ns (56.096%)  route 4.343ns (43.904%))
+  Logic Levels:           24  (CARRY4=20 LUT2=1 LUT3=2 LUT4=1)
+  Clock Path Skew:        -0.128ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.767ns = ( 14.767 - 10.000 ) 
+    Source Clock Delay      (SCD):    5.073ns
+    Clock Pessimism Removal (CPR):    0.179ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock gclk rise edge)       0.000     0.000 r  
+    N15                                               0.000     0.000 r  clk_100mhz (IN)
+                         net (fo=0)                   0.000     0.000    clk_100mhz
+    N15                  IBUF (Prop_ibuf_I_O)         1.440     1.440 r  clk_100mhz_IBUF_inst/O
+                         net (fo=1, routed)           1.972     3.412    clk_100mhz_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     3.508 r  clk_100mhz_IBUF_BUFG_inst/O
+                         net (fo=925, routed)         1.565     5.073    uut/clk_100mhz_IBUF_BUFG
+    SLICE_X37Y45         FDRE                                         r  uut/divisor_reg[23][0]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X37Y45         FDRE (Prop_fdre_C_Q)         0.456     5.529 r  uut/divisor_reg[23][0]/Q
+                         net (fo=7, routed)           1.107     6.636    uut/divisor_reg[23]_23[0]
+    SLICE_X39Y47         LUT4 (Prop_lut4_I1_O)        0.124     6.760 r  uut/dividend_reg[29][5]_srl3_i_36/O
+                         net (fo=1, routed)           0.000     6.760    uut/dividend_reg[29][5]_srl3_i_36_n_0
+    SLICE_X39Y47         CARRY4 (Prop_carry4_S[0]_CO[3])
+                                                      0.532     7.292 r  uut/dividend_reg[29][5]_srl3_i_20/CO[3]
+                         net (fo=1, routed)           0.000     7.292    uut/dividend_reg[29][5]_srl3_i_20_n_0
+    SLICE_X39Y48         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     7.406 r  uut/dividend_reg[29][5]_srl3_i_11/CO[3]
+                         net (fo=1, routed)           0.000     7.406    uut/dividend_reg[29][5]_srl3_i_11_n_0
+    SLICE_X39Y49         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     7.520 r  uut/dividend_reg[29][5]_srl3_i_2/CO[3]
+                         net (fo=1, routed)           0.001     7.520    uut/dividend_reg[29][5]_srl3_i_2_n_0
+    SLICE_X39Y50         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     7.634 r  uut/dividend_reg[29][5]_srl3_i_1/CO[3]
+                         net (fo=33, routed)          1.200     8.834    uut/dividend_reg[29][5]_srl3_i_1_n_0
+    SLICE_X38Y45         LUT3 (Prop_lut3_I2_O)        0.124     8.958 r  uut/p[25][6]_i_9/O
+                         net (fo=1, routed)           0.000     8.958    uut/p[25][6]_i_9_n_0
+    SLICE_X38Y45         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.533     9.491 r  uut/p_reg[25][6]_i_2/CO[3]
+                         net (fo=1, routed)           0.000     9.491    uut/p_reg[25][6]_i_2_n_0
+    SLICE_X38Y46         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     9.608 r  uut/p_reg[25][10]_i_2/CO[3]
+                         net (fo=1, routed)           0.000     9.608    uut/p_reg[25][10]_i_2_n_0
+    SLICE_X38Y47         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     9.725 r  uut/p_reg[25][14]_i_2/CO[3]
+                         net (fo=1, routed)           0.000     9.725    uut/p_reg[25][14]_i_2_n_0
+    SLICE_X38Y48         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     9.842 r  uut/p_reg[25][18]_i_2/CO[3]
+                         net (fo=1, routed)           0.000     9.842    uut/p_reg[25][18]_i_2_n_0
+    SLICE_X38Y49         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     9.959 r  uut/p_reg[25][22]_i_2/CO[3]
+                         net (fo=1, routed)           0.001     9.960    uut/p_reg[25][22]_i_2_n_0
+    SLICE_X38Y50         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    10.077 r  uut/p_reg[25][26]_i_2/CO[3]
+                         net (fo=1, routed)           0.000    10.077    uut/p_reg[25][26]_i_2_n_0
+    SLICE_X38Y51         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.323    10.400 f  uut/p_reg[25][30]_i_3/O[1]
+                         net (fo=4, routed)           0.852    11.252    uut/p_reg[25][30]_i_3_n_6
+    SLICE_X39Y46         LUT2 (Prop_lut2_I1_O)        0.306    11.558 r  uut/dividend_reg[29][4]_srl3_i_10/O
+                         net (fo=1, routed)           0.000    11.558    uut/dividend_reg[29][4]_srl3_i_10_n_0
+    SLICE_X39Y46         CARRY4 (Prop_carry4_S[0]_CO[3])
+                                                      0.532    12.090 r  uut/dividend_reg[29][4]_srl3_i_1/CO[3]
+                         net (fo=33, routed)          1.182    13.272    uut/dividend_reg[29][4]_srl3_i_1_n_0
+    SLICE_X40Y43         LUT3 (Prop_lut3_I2_O)        0.124    13.396 r  uut/p[25][2]_i_4/O
+                         net (fo=1, routed)           0.000    13.396    uut/p[25][2]_i_4_n_0
+    SLICE_X40Y43         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550    13.946 r  uut/p_reg[25][2]_i_1/CO[3]
+                         net (fo=1, routed)           0.000    13.946    uut/p_reg[25][2]_i_1_n_0
+    SLICE_X40Y44         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    14.060 r  uut/p_reg[25][6]_i_1/CO[3]
+                         net (fo=1, routed)           0.000    14.060    uut/p_reg[25][6]_i_1_n_0
+    SLICE_X40Y45         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    14.174 r  uut/p_reg[25][10]_i_1/CO[3]
+                         net (fo=1, routed)           0.000    14.174    uut/p_reg[25][10]_i_1_n_0
+    SLICE_X40Y46         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    14.288 r  uut/p_reg[25][14]_i_1/CO[3]
+                         net (fo=1, routed)           0.000    14.288    uut/p_reg[25][14]_i_1_n_0
+    SLICE_X40Y47         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    14.402 r  uut/p_reg[25][18]_i_1/CO[3]
+                         net (fo=1, routed)           0.000    14.402    uut/p_reg[25][18]_i_1_n_0
+    SLICE_X40Y48         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    14.516 r  uut/p_reg[25][22]_i_1/CO[3]
+                         net (fo=1, routed)           0.000    14.516    uut/p_reg[25][22]_i_1_n_0
+    SLICE_X40Y49         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    14.630 r  uut/p_reg[25][26]_i_1/CO[3]
+                         net (fo=1, routed)           0.001    14.631    uut/p_reg[25][26]_i_1_n_0
+    SLICE_X40Y50         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.334    14.965 r  uut/p_reg[25][30]_i_1/O[1]
+                         net (fo=1, routed)           0.000    14.965    uut/p_reg[25][30]_i_1_n_6
+    SLICE_X40Y50         FDRE                                         r  uut/p_reg[25][28]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock gclk rise edge)      10.000    10.000 r  
+    N15                                               0.000    10.000 r  clk_100mhz (IN)
+                         net (fo=0)                   0.000    10.000    clk_100mhz
+    N15                  IBUF (Prop_ibuf_I_O)         1.370    11.370 r  clk_100mhz_IBUF_inst/O
+                         net (fo=1, routed)           1.868    13.238    clk_100mhz_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    13.329 r  clk_100mhz_IBUF_BUFG_inst/O
+                         net (fo=925, routed)         1.438    14.767    uut/clk_100mhz_IBUF_BUFG
+    SLICE_X40Y50         FDRE                                         r  uut/p_reg[25][28]/C
+                         clock pessimism              0.179    14.946    
+                         clock uncertainty           -0.035    14.910    
+    SLICE_X40Y50         FDRE (Setup_fdre_C_D)        0.062    14.972    uut/p_reg[25][28]
+  -------------------------------------------------------------------
+                         required time                         14.972    
+                         arrival time                         -14.965    
+  -------------------------------------------------------------------
+                         slack                                  0.007    
+
+
+
+
