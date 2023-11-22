@@ -26,6 +26,10 @@ read_xdc ./xdc/top_level.xdc
 # set the part number so Vivado knows how to build (each FPGA is different)
 set_part $partNum
 
+read_ip ./ip/arctan/arctan.xci
+generate_target all [get_ips]
+synth_ip [get_ips]
+
 #Run Synthesis
 synth_design -top top_level -part $partNum -verbose
 write_checkpoint -force $outputDir/post_synth.dcp
