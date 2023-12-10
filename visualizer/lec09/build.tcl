@@ -18,17 +18,13 @@ if {[llength $files] != 0} {
 # read in all system veriilog files:
 read_verilog -sv [ glob ./hdl/*.sv ]
 # uncomment line below if verilog (.v) files present:
-# read_verilog  [ glob ./hdl/*.v ]
+#read_verilog  [ glob ./hdl/*.v ]
 read_xdc ./xdc/top_level.xdc
 #we'll use this later:
-# read_mem [ glob ./data/*.mem ]
+#read_mem [ glob ./data/*.mem ]
 
 # set the part number so Vivado knows how to build (each FPGA is different)
 set_part $partNum
-
-read_ip ./ip/arctan/arctan.xci
-generate_target all [get_ips]
-synth_ip [get_ips]
 
 #Run Synthesis
 synth_design -top top_level -part $partNum -verbose
@@ -62,3 +58,5 @@ report_drc -file $outputDir/post_imp_drc.rpt
 #set_property SEVERITY {Warning} [get_drc_checks NSTD-1]
 #write_verilog -force $outputDir/cpu_impl_netlist.v -mode timesim -sdf_anno true
 write_bitstream -force $outputDir/final.bit
+
+

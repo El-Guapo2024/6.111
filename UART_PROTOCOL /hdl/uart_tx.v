@@ -3,11 +3,9 @@
 
 module uart_tx (
 	input wire clk,
-
 	input wire [7:0] data_i,
 	input wire start_i,
 	output reg done_o,
-
 	output reg tx);
 
 	// this module supports only 8N1 serial at a configurable baudrate

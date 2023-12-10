@@ -16,146 +16,66 @@ module top_level(
   input wire [7:0] pmodb //input I/O used for UART IMU 
   );
  
-  //shut up those rgb LEDs (active high):
-  assign rgb1= 0;
-  assign rgb0 = 0;
- 
-  /* have btnd control system reset */
-  logic sys_rst;
-  assign sys_rst = btn[0];
- 
-  /* how many button presses have we seen so far?
-  * wire this up to the LED display
-  */
-  logic [15:0] btn_count; //use me to keep track of counting
-  assign led = btn_count;
- 
-  //downstream/display variables:
-  logic [31:0] val_to_display; //either the spi data or the btn_count data (default)
-  logic [15:0] received; //data your spi_rx receives (part 3)
-  logic [15:0] transmitted; //data your spi_tx module transmits (part 3)
-  logic [6:0] ss_c; //used to grab output cathode signal for 7s leds
- 
-  logic button_input;
-  /* debouncer for the button. we wrote this
-  * in lecture together.
-  * TODO: make a variable for the debounced
-  * button output, and feed it into your edge
-  * detector
-  */
-  debouncer btn1_db(.clk_in(clk_100mhz),
-                  .rst_in(sys_rst),
-                  .dirty_in(btn[1]),
-                  .clean_out(button_input));
- 
-  /* this should go high for one cycle on the
-  * rising edge of the (debounced) button output
-  */
-  logic btn_pulse;
-  logic old_button_input;
-  /* TODO: write your edge detector for part 1 of the
-   * lab here!
-   */
-  always_ff@(posedge clk_100mhz)begin
-    if (button_input == 1 && old_button_input != button_input)begin
-      btn_pulse <= 1;
-      old_button_input <= button_input;
-    end else begin
-      btn_pulse <= 0;
-      old_button_input <= button_input;
-    end
-  end
-
- 
-  /* the button-press counter.
-   * TODO: finish this during part 1 of the lab
-   */
-  simple_counter msc( .clk_in(clk_100mhz),
-                      .rst_in(sys_rst),
-                      .evt_in(btn_pulse),
-                      .count_out(btn_count));
- 
-  //for starters just display button count:
-  //assign val_to_display = btn_count;
-  //in part 3 replace above line with below so we can see both (and default to spi rx/tx)
-  assign val_to_display = btn[2]?btn_count:{received, transmitted};
- 
-  //uncomment seven segment module for part 2!
-  
-  seven_segment_controller mssc(.clk_in(clk_100mhz),
-                                .rst_in(sys_rst),
-                                .val_in(val_to_display),
-                                .cat_out(ss_c),
-                                .an_out({ss0_an, ss1_an}));
-
-  assign ss0_c = ss_c; //control upper four digit's cathodes!
-  assign ss1_c = ss_c; //same as above but for lower four digits!
+logic sys_rst;
+assign sys_rst = btn[0];
 
 // This is the UART for the LiDAR
-logic [7:0] btx_utx_data;
-logic btx_utx_start;
-logic utx_btx_done;
+// pmoda[0] will be TX pmodb[0] will be RX
+logic [7:0] data_out_lidar;
+logic send_data_lidar;
+logic data_sent_lidar;
 
-uart_tx myTXLiDAR(.CLOCKS_PER_BAUD(/* CLOCKS_PER_BAUD */)) utx (
+uart_tx #(.CLOCKS_PER_BAUD(868)) myTXLiDAR (
     .clk(clk_100mhz),
-
-    .data_i(btx_utx_data),
-    .start_i(btx_utx_start),
-    .done_o(utx_btx_done),
-
-    .tx(tx));
+    .data_i(data_out_lidar),
+    .start_i(send_data_lidar),
+    .done_o(data_sent_lidar),
+    .tx(pmoda[0]));
  
-logic [7:0] urx_brx_data;
-logic urx_brx_valid;
-uart_rx myRXLiDAR(.CLOCKS_PER_BAUD(/* CLOCKS_PER_BAUD */)) urx (
-    .clk(clk_100mhz),
-    .rx(rx),
+logic [7:0] data_in_lidar;
+logic data_received_lidar;
 
+uart_rx #(.CLOCKS_PER_BAUD(868)) myRXLiDAR (
+    .clk(clk_100mhz),
+    .rx(pmodb[0]),
     .data_o(urx_brx_data),
     .valid_o(urx_brx_valid));
 
-  
-logic [7:0] btx_utx_data;
-logic btx_utx_start;
-logic utx_btx_done;
+LiDAR_Protocol myLiDAR_Protocol(
+  .clk_in(clk_100mhz),
+  .rst_in(sys_rst),
+  .rx_data(urx_brx_data),
+  .rx_valid(urx_brx_valid),
+  .tx_done(utx_btx_done),
+  .tx_data(btx_utx_data),
+  .tx_start(btx_utx_start));
 
-uart_tx myTXLiDAR(.CLOCKS_PER_BAUD(/* CLOCKS_PER_BAUD */)) utx (
+
+/*----------------------------------------------------------------------------------------------*/
+// From here below is the code for the uart 
+//
+/*----------------------------------------------------------------------------------------------*/
+// pmoda[1] will be TX pmodb[1] will be RX
+
+logic [7:0] btx_utx_data_1;
+logic btx_utx_start_1;
+logic utx_btx_done_1;
+
+uart_tx #(.CLOCKS_PER_BAUD(868)) myTXIMU (
     .clk(clk_100mhz),
+    .data_i(btx_utx_data_1),
+    .start_i(btx_utx_start_1),
+    .done_o(utx_btx_done_1),
+    .tx(pmoda[1]));
 
-    .data_i(btx_utx_data),
-    .start_i(btx_utx_start),
-    .done_o(utx_btx_done),
+logic [7:0] urx_brx_data_1;
+logic urx_brx_valid_1;
 
-    .tx(tx));
- 
-// This is the UART for the IMU 
-logic [7:0] urx_brx_data;
-logic urx_brx_valid;
-uart_rx myRXLiDAR(.CLOCKS_PER_BAUD(/* CLOCKS_PER_BAUD */)) urx (
+uart_rx #(.CLOCKS_PER_BAUD(868)) myRXIMU (
     .clk(clk_100mhz),
-    .rx(rx),
-
-    .data_o(urx_brx_data),
-    .valid_o(urx_brx_valid));
-
-
-  //ALSO TO DO (IMPORTANT):
-  //update received to be:
-  //* 0 if sys_rst active
-  //* spi_rx_data if new_data is high! (and only when high)
-  //Do this with sequential logic! Not combinational!
-  always_ff@(posedge clk_100mhz)begin
-    if (sys_rst == 1) begin 
-      received <= 0 ;
-    end else if( new_data == 1 ) begin 
-      received <= spi_rx_data ;
-    end else begin 
-      received <= received ;
-    end 
-  end
- 
-
-
+    .rx(pmodb[1]),
+    .data_o(urx_brx_data_1),
+    .valid_o(urx_brx_valid_1));
 
 endmodule // top_level
 `default_nettype wire

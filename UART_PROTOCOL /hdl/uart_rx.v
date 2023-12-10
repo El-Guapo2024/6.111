@@ -6,9 +6,7 @@
 
 module uart_rx (
     input wire clk,
-
     input wire rx,
-
     output reg [7:0] data_o,
     output reg valid_o);
 
