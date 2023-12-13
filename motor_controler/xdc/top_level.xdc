@@ -116,6 +116,9 @@ set_property -dict {PACKAGE_PIN E15 IOSTANDARD LVCMOS33}  [ get_ports "pmoda[7]"
 #set_property -dict { PACKAGE_PIN R16   IOSTANDARD TMDS_33  } [get_ports {hdmi_tx_p[1]}]
 #set_property -dict { PACKAGE_PIN R14   IOSTANDARD TMDS_33  } [get_ports {hdmi_tx_p[2]}]
 
+set_property -dict {PACKAGE_PIN D11 IOSTANDARD LVCMOS33} [get_ports "GPIO0"]
+set_property -dict {PACKAGE_PIN G16 IOSTANDARD LVCMOS33} [get_ports "GPIO4"]
+
 #change G15 to B13 and E13 to B14
 set_property PACKAGE_PIN B13 [ get_ports "spkl"]
 set_property PACKAGE_PIN B14 [ get_ports "spkr"]
