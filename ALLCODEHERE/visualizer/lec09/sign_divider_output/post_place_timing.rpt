@@ -1,0 +1,873 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.1 (lin64) Build 3865809 Sun May  7 15:04:56 MDT 2023
+| Date         : Thu Oct  5 16:59:02 2023
+| Host         : worker running 64-bit Ubuntu 20.04.6 LTS
+| Command      : report_timing -file obj/post_place_timing.rpt
+| Design       : top_level
+| Device       : 7s50-csga324
+| Speed File   : -1  PRODUCTION 1.23 2018-06-13
+| Design State : Physopt postPlace
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Timing Report
+
+Slack (VIOLATED) :        -68.028ns  (required time - arrival time)
+  Source:                 divisor_reg[0]/C
+                            (rising edge-triggered cell FDRE clocked by gclk  {rise@0.000ns fall@4.000ns period=10.000ns})
+  Destination:            quotient_reg[0]/D
+                            (rising edge-triggered cell FDRE clocked by gclk  {rise@0.000ns fall@4.000ns period=10.000ns})
+  Path Group:             gclk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (gclk rise@10.000ns - gclk rise@0.000ns)
+  Data Path Delay:        78.021ns  (logic 54.589ns (69.967%)  route 23.432ns (30.033%))
+  Logic Levels:           276  (CARRY4=251 LUT2=1 LUT3=24)
+  Clock Path Skew:        -0.018ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.934ns = ( 14.934 - 10.000 ) 
+    Source Clock Delay      (SCD):    5.133ns
+    Clock Pessimism Removal (CPR):    0.182ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock gclk rise edge)       0.000     0.000 r  
+    N15                                               0.000     0.000 r  clk_100mhz (IN)
+                         net (fo=0)                   0.000     0.000    clk_100mhz
+    N15                  IBUF (Prop_ibuf_I_O)         1.440     1.440 r  clk_100mhz_IBUF_inst/O
+                         net (fo=1, estimated)        1.972     3.412    clk_100mhz_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     3.508 r  clk_100mhz_IBUF_BUFG_inst/O
+                         net (fo=131, estimated)      1.625     5.133    clk_100mhz_IBUF_BUFG
+    SLICE_X62Y50         FDRE                                         r  divisor_reg[0]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X62Y50         FDRE (Prop_fdre_C_Q)         0.456     5.589 r  divisor_reg[0]/Q
+                         net (fo=4, estimated)        0.461     6.050    divisor[0]
+    SLICE_X63Y50         LUT2 (Prop_lut2_I0_O)        0.124     6.174 r  quotient[31]_i_37/O
+                         net (fo=1, routed)           0.000     6.174    quotient[31]_i_37_n_0
+    SLICE_X63Y50         CARRY4 (Prop_carry4_S[0]_CO[3])
+                                                      0.532     6.706 r  quotient_reg[31]_i_22/CO[3]
+                         net (fo=1, estimated)        0.000     6.706    quotient_reg[31]_i_22_n_0
+    SLICE_X63Y51         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     6.820 r  quotient_reg[31]_i_13/CO[3]
+                         net (fo=1, estimated)        0.000     6.820    quotient_reg[31]_i_13_n_0
+    SLICE_X63Y52         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     6.934 r  quotient_reg[31]_i_4/CO[3]
+                         net (fo=1, estimated)        0.000     6.934    quotient_reg[31]_i_4_n_0
+    SLICE_X63Y53         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     7.048 r  quotient_reg[31]_i_3/CO[3]
+                         net (fo=1, estimated)        0.000     7.048    quotient_reg[31]_i_3_n_0
+    SLICE_X63Y54         CARRY4 (Prop_carry4_CI_CO[0])
+                                                      0.293     7.341 r  quotient_reg[31]_i_2/CO[0]
+                         net (fo=20, estimated)       0.741     8.082    quotient_reg[31]_i_2_n_3
+    SLICE_X60Y49         CARRY4 (Prop_carry4_CYINIT_CO[3])
+                                                      0.844     8.926 r  quotient_reg[30]_i_15/CO[3]
+                         net (fo=1, estimated)        0.000     8.926    quotient_reg[30]_i_15_n_0
+    SLICE_X60Y50         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     9.043 r  quotient_reg[30]_i_10/CO[3]
+                         net (fo=1, estimated)        0.000     9.043    quotient_reg[30]_i_10_n_0
+    SLICE_X60Y51         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     9.160 r  quotient_reg[30]_i_5/CO[3]
+                         net (fo=1, estimated)        0.000     9.160    quotient_reg[30]_i_5_n_0
+    SLICE_X60Y52         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     9.277 r  quotient_reg[30]_i_2/CO[3]
+                         net (fo=1, estimated)        0.000     9.277    quotient_reg[30]_i_2_n_0
+    SLICE_X60Y53         CARRY4 (Prop_carry4_CI_CO[2])
+                                                      0.252     9.529 r  quotient_reg[30]_i_1/CO[2]
+                         net (fo=22, estimated)       0.682    10.211    quotient_reg[30]_i_1_n_1
+    SLICE_X59Y46         LUT3 (Prop_lut3_I0_O)        0.310    10.521 r  quotient[29]_i_23/O
+                         net (fo=1, routed)           0.000    10.521    quotient[29]_i_23_n_0
+    SLICE_X59Y46         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550    11.071 r  quotient_reg[29]_i_16/CO[3]
+                         net (fo=1, estimated)        0.000    11.071    quotient_reg[29]_i_16_n_0
+    SLICE_X59Y47         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    11.185 r  quotient_reg[29]_i_11/CO[3]
+                         net (fo=1, estimated)        0.000    11.185    quotient_reg[29]_i_11_n_0
+    SLICE_X59Y48         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    11.299 r  quotient_reg[29]_i_6/CO[3]
+                         net (fo=1, estimated)        0.000    11.299    quotient_reg[29]_i_6_n_0
+    SLICE_X59Y49         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    11.413 r  quotient_reg[29]_i_2/CO[3]
+                         net (fo=1, estimated)        0.000    11.413    quotient_reg[29]_i_2_n_0
+    SLICE_X59Y50         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    11.527 r  quotient_reg[29]_i_1/CO[3]
+                         net (fo=24, estimated)       0.695    12.222    quotient_reg[29]_i_1_n_0
+    SLICE_X61Y45         LUT3 (Prop_lut3_I0_O)        0.124    12.346 r  quotient[28]_i_25/O
+                         net (fo=1, routed)           0.000    12.346    quotient[28]_i_25_n_0
+    SLICE_X61Y45         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550    12.896 r  quotient_reg[28]_i_18/CO[3]
+                         net (fo=1, estimated)        0.000    12.896    quotient_reg[28]_i_18_n_0
+    SLICE_X61Y46         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    13.010 r  quotient_reg[28]_i_13/CO[3]
+                         net (fo=1, estimated)        0.000    13.010    quotient_reg[28]_i_13_n_0
+    SLICE_X61Y47         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    13.124 r  quotient_reg[28]_i_8/CO[3]
+                         net (fo=1, estimated)        0.000    13.124    quotient_reg[28]_i_8_n_0
+    SLICE_X61Y48         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    13.238 r  quotient_reg[28]_i_3/CO[3]
+                         net (fo=1, estimated)        0.000    13.238    quotient_reg[28]_i_3_n_0
+    SLICE_X61Y49         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    13.352 r  quotient_reg[28]_i_2/CO[3]
+                         net (fo=1, estimated)        0.000    13.352    quotient_reg[28]_i_2_n_0
+    SLICE_X61Y50         CARRY4 (Prop_carry4_CI_CO[0])
+                                                      0.293    13.645 r  quotient_reg[28]_i_1/CO[0]
+                         net (fo=26, estimated)       0.682    14.327    quotient_reg[28]_i_1_n_3
+    SLICE_X61Y53         CARRY4 (Prop_carry4_CYINIT_CO[3])
+                                                      0.829    15.156 r  quotient_reg[27]_i_19/CO[3]
+                         net (fo=1, estimated)        0.000    15.156    quotient_reg[27]_i_19_n_0
+    SLICE_X61Y54         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    15.270 r  quotient_reg[27]_i_14/CO[3]
+                         net (fo=1, estimated)        0.000    15.270    quotient_reg[27]_i_14_n_0
+    SLICE_X61Y55         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    15.384 r  quotient_reg[27]_i_9/CO[3]
+                         net (fo=1, estimated)        0.000    15.384    quotient_reg[27]_i_9_n_0
+    SLICE_X61Y56         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    15.498 r  quotient_reg[27]_i_4/CO[3]
+                         net (fo=1, estimated)        0.000    15.498    quotient_reg[27]_i_4_n_0
+    SLICE_X61Y57         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    15.612 r  quotient_reg[27]_i_2/CO[3]
+                         net (fo=1, estimated)        0.000    15.612    quotient_reg[27]_i_2_n_0
+    SLICE_X61Y58         CARRY4 (Prop_carry4_CI_CO[1])
+                                                      0.178    15.790 r  quotient_reg[27]_i_1/CO[1]
+                         net (fo=28, estimated)       0.566    16.356    quotient_reg[27]_i_1_n_2
+    SLICE_X60Y56         LUT3 (Prop_lut3_I0_O)        0.329    16.685 r  quotient[26]_i_27/O
+                         net (fo=1, routed)           0.000    16.685    quotient[26]_i_27_n_0
+    SLICE_X60Y56         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.533    17.218 r  quotient_reg[26]_i_20/CO[3]
+                         net (fo=1, estimated)        0.000    17.218    quotient_reg[26]_i_20_n_0
+    SLICE_X60Y57         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    17.335 r  quotient_reg[26]_i_15/CO[3]
+                         net (fo=1, estimated)        0.000    17.335    quotient_reg[26]_i_15_n_0
+    SLICE_X60Y58         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    17.452 r  quotient_reg[26]_i_10/CO[3]
+                         net (fo=1, estimated)        0.000    17.452    quotient_reg[26]_i_10_n_0
+    SLICE_X60Y59         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    17.569 r  quotient_reg[26]_i_5/CO[3]
+                         net (fo=1, estimated)        0.000    17.569    quotient_reg[26]_i_5_n_0
+    SLICE_X60Y60         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    17.686 r  quotient_reg[26]_i_2/CO[3]
+                         net (fo=1, estimated)        0.000    17.686    quotient_reg[26]_i_2_n_0
+    SLICE_X60Y61         CARRY4 (Prop_carry4_CI_CO[2])
+                                                      0.252    17.938 r  quotient_reg[26]_i_1/CO[2]
+                         net (fo=30, estimated)       0.481    18.419    quotient_reg[26]_i_1_n_1
+    SLICE_X61Y60         LUT3 (Prop_lut3_I0_O)        0.310    18.729 r  quotient[25]_i_28/O
+                         net (fo=1, routed)           0.000    18.729    quotient[25]_i_28_n_0
+    SLICE_X61Y60         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550    19.279 r  quotient_reg[25]_i_21/CO[3]
+                         net (fo=1, estimated)        0.000    19.279    quotient_reg[25]_i_21_n_0
+    SLICE_X61Y61         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    19.393 r  quotient_reg[25]_i_16/CO[3]
+                         net (fo=1, estimated)        0.000    19.393    quotient_reg[25]_i_16_n_0
+    SLICE_X61Y62         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    19.507 r  quotient_reg[25]_i_11/CO[3]
+                         net (fo=1, estimated)        0.000    19.507    quotient_reg[25]_i_11_n_0
+    SLICE_X61Y63         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    19.621 r  quotient_reg[25]_i_6/CO[3]
+                         net (fo=1, estimated)        0.000    19.621    quotient_reg[25]_i_6_n_0
+    SLICE_X61Y64         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    19.735 r  quotient_reg[25]_i_2/CO[3]
+                         net (fo=1, estimated)        0.000    19.735    quotient_reg[25]_i_2_n_0
+    SLICE_X61Y65         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    19.849 r  quotient_reg[25]_i_1/CO[3]
+                         net (fo=32, estimated)       1.205    21.054    quotient_reg[25]_i_1_n_0
+    SLICE_X58Y50         LUT3 (Prop_lut3_I0_O)        0.124    21.178 r  quotient[24]_i_29/O
+                         net (fo=1, routed)           0.000    21.178    quotient[24]_i_29_n_0
+    SLICE_X58Y50         CARRY4 (Prop_carry4_S[2]_CO[3])
+                                                      0.398    21.576 r  quotient_reg[24]_i_23/CO[3]
+                         net (fo=1, estimated)        0.000    21.576    quotient_reg[24]_i_23_n_0
+    SLICE_X58Y51         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    21.690 r  quotient_reg[24]_i_18/CO[3]
+                         net (fo=1, estimated)        0.000    21.690    quotient_reg[24]_i_18_n_0
+    SLICE_X58Y52         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    21.804 r  quotient_reg[24]_i_13/CO[3]
+                         net (fo=1, estimated)        0.000    21.804    quotient_reg[24]_i_13_n_0
+    SLICE_X58Y53         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    21.918 r  quotient_reg[24]_i_8/CO[3]
+                         net (fo=1, estimated)        0.000    21.918    quotient_reg[24]_i_8_n_0
+    SLICE_X58Y54         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    22.032 r  quotient_reg[24]_i_3/CO[3]
+                         net (fo=1, estimated)        0.000    22.032    quotient_reg[24]_i_3_n_0
+    SLICE_X58Y55         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    22.146 r  quotient_reg[24]_i_2/CO[3]
+                         net (fo=1, estimated)        0.000    22.146    quotient_reg[24]_i_2_n_0
+    SLICE_X58Y56         CARRY4 (Prop_carry4_CI_CO[0])
+                                                      0.293    22.439 r  quotient_reg[24]_i_1/CO[0]
+                         net (fo=34, estimated)       0.559    22.998    quotient_reg[24]_i_1_n_3
+    SLICE_X59Y54         CARRY4 (Prop_carry4_CYINIT_CO[3])
+                                                      0.829    23.827 r  quotient_reg[23]_i_24/CO[3]
+                         net (fo=1, estimated)        0.000    23.827    quotient_reg[23]_i_24_n_0
+    SLICE_X59Y55         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    23.941 r  quotient_reg[23]_i_19/CO[3]
+                         net (fo=1, estimated)        0.000    23.941    quotient_reg[23]_i_19_n_0
+    SLICE_X59Y56         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    24.055 r  quotient_reg[23]_i_14/CO[3]
+                         net (fo=1, estimated)        0.000    24.055    quotient_reg[23]_i_14_n_0
+    SLICE_X59Y57         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    24.169 r  quotient_reg[23]_i_9/CO[3]
+                         net (fo=1, estimated)        0.000    24.169    quotient_reg[23]_i_9_n_0
+    SLICE_X59Y58         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    24.283 r  quotient_reg[23]_i_4/CO[3]
+                         net (fo=1, estimated)        0.000    24.283    quotient_reg[23]_i_4_n_0
+    SLICE_X59Y59         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    24.397 r  quotient_reg[23]_i_2/CO[3]
+                         net (fo=1, estimated)        0.000    24.397    quotient_reg[23]_i_2_n_0
+    SLICE_X59Y60         CARRY4 (Prop_carry4_CI_CO[1])
+                                                      0.178    24.575 r  quotient_reg[23]_i_1/CO[1]
+                         net (fo=36, estimated)       0.513    25.088    quotient_reg[23]_i_1_n_2
+    SLICE_X59Y62         LUT3 (Prop_lut3_I0_O)        0.329    25.417 r  quotient[22]_i_32/O
+                         net (fo=1, routed)           0.000    25.417    quotient[22]_i_32_n_0
+    SLICE_X59Y62         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550    25.967 r  quotient_reg[22]_i_25/CO[3]
+                         net (fo=1, estimated)        0.000    25.967    quotient_reg[22]_i_25_n_0
+    SLICE_X59Y63         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    26.081 r  quotient_reg[22]_i_20/CO[3]
+                         net (fo=1, estimated)        0.000    26.081    quotient_reg[22]_i_20_n_0
+    SLICE_X59Y64         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    26.195 r  quotient_reg[22]_i_15/CO[3]
+                         net (fo=1, estimated)        0.000    26.195    quotient_reg[22]_i_15_n_0
+    SLICE_X59Y65         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    26.309 r  quotient_reg[22]_i_10/CO[3]
+                         net (fo=1, estimated)        0.000    26.309    quotient_reg[22]_i_10_n_0
+    SLICE_X59Y66         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    26.423 r  quotient_reg[22]_i_5/CO[3]
+                         net (fo=1, estimated)        0.000    26.423    quotient_reg[22]_i_5_n_0
+    SLICE_X59Y67         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    26.537 r  quotient_reg[22]_i_2/CO[3]
+                         net (fo=1, estimated)        0.000    26.537    quotient_reg[22]_i_2_n_0
+    SLICE_X59Y68         CARRY4 (Prop_carry4_CI_CO[2])
+                                                      0.250    26.787 r  quotient_reg[22]_i_1/CO[2]
+                         net (fo=38, estimated)       0.675    27.462    quotient_reg[22]_i_1_n_1
+    SLICE_X62Y65         LUT3 (Prop_lut3_I0_O)        0.313    27.775 r  quotient[21]_i_33/O
+                         net (fo=1, routed)           0.000    27.775    quotient[21]_i_33_n_0
+    SLICE_X62Y65         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550    28.325 r  quotient_reg[21]_i_26/CO[3]
+                         net (fo=1, estimated)        0.000    28.325    quotient_reg[21]_i_26_n_0
+    SLICE_X62Y66         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    28.439 r  quotient_reg[21]_i_21/CO[3]
+                         net (fo=1, estimated)        0.000    28.439    quotient_reg[21]_i_21_n_0
+    SLICE_X62Y67         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    28.553 r  quotient_reg[21]_i_16/CO[3]
+                         net (fo=1, estimated)        0.000    28.553    quotient_reg[21]_i_16_n_0
+    SLICE_X62Y68         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    28.667 r  quotient_reg[21]_i_11/CO[3]
+                         net (fo=1, estimated)        0.000    28.667    quotient_reg[21]_i_11_n_0
+    SLICE_X62Y69         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    28.781 r  quotient_reg[21]_i_6/CO[3]
+                         net (fo=1, estimated)        0.000    28.781    quotient_reg[21]_i_6_n_0
+    SLICE_X62Y70         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    28.895 r  quotient_reg[21]_i_2/CO[3]
+                         net (fo=1, estimated)        0.000    28.895    quotient_reg[21]_i_2_n_0
+    SLICE_X62Y71         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    29.009 r  quotient_reg[21]_i_1/CO[3]
+                         net (fo=40, estimated)       0.743    29.752    quotient_reg[21]_i_1_n_0
+    SLICE_X60Y63         LUT3 (Prop_lut3_I0_O)        0.124    29.876 r  quotient[20]_i_35/O
+                         net (fo=1, routed)           0.000    29.876    quotient[20]_i_35_n_0
+    SLICE_X60Y63         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.533    30.409 r  quotient_reg[20]_i_28/CO[3]
+                         net (fo=1, estimated)        0.000    30.409    quotient_reg[20]_i_28_n_0
+    SLICE_X60Y64         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    30.526 r  quotient_reg[20]_i_23/CO[3]
+                         net (fo=1, estimated)        0.000    30.526    quotient_reg[20]_i_23_n_0
+    SLICE_X60Y65         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    30.643 r  quotient_reg[20]_i_18/CO[3]
+                         net (fo=1, estimated)        0.000    30.643    quotient_reg[20]_i_18_n_0
+    SLICE_X60Y66         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    30.760 r  quotient_reg[20]_i_13/CO[3]
+                         net (fo=1, estimated)        0.000    30.760    quotient_reg[20]_i_13_n_0
+    SLICE_X60Y67         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    30.877 r  quotient_reg[20]_i_8/CO[3]
+                         net (fo=1, estimated)        0.000    30.877    quotient_reg[20]_i_8_n_0
+    SLICE_X60Y68         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    30.994 r  quotient_reg[20]_i_3/CO[3]
+                         net (fo=1, estimated)        0.000    30.994    quotient_reg[20]_i_3_n_0
+    SLICE_X60Y69         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    31.111 r  quotient_reg[20]_i_2/CO[3]
+                         net (fo=1, estimated)        0.000    31.111    quotient_reg[20]_i_2_n_0
+    SLICE_X60Y70         CARRY4 (Prop_carry4_CI_CO[0])
+                                                      0.281    31.392 r  quotient_reg[20]_i_1/CO[0]
+                         net (fo=42, estimated)       0.704    32.096    quotient_reg[20]_i_1_n_3
+    SLICE_X61Y67         CARRY4 (Prop_carry4_CYINIT_CO[3])
+                                                      0.823    32.919 r  quotient_reg[19]_i_29/CO[3]
+                         net (fo=1, estimated)        0.000    32.919    quotient_reg[19]_i_29_n_0
+    SLICE_X61Y68         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    33.033 r  quotient_reg[19]_i_24/CO[3]
+                         net (fo=1, estimated)        0.000    33.033    quotient_reg[19]_i_24_n_0
+    SLICE_X61Y69         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    33.147 r  quotient_reg[19]_i_19/CO[3]
+                         net (fo=1, estimated)        0.000    33.147    quotient_reg[19]_i_19_n_0
+    SLICE_X61Y70         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    33.261 r  quotient_reg[19]_i_14/CO[3]
+                         net (fo=1, estimated)        0.000    33.261    quotient_reg[19]_i_14_n_0
+    SLICE_X61Y71         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    33.375 r  quotient_reg[19]_i_9/CO[3]
+                         net (fo=1, estimated)        0.000    33.375    quotient_reg[19]_i_9_n_0
+    SLICE_X61Y72         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    33.489 r  quotient_reg[19]_i_4/CO[3]
+                         net (fo=1, estimated)        0.000    33.489    quotient_reg[19]_i_4_n_0
+    SLICE_X61Y73         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    33.603 r  quotient_reg[19]_i_2/CO[3]
+                         net (fo=1, estimated)        0.000    33.603    quotient_reg[19]_i_2_n_0
+    SLICE_X61Y74         CARRY4 (Prop_carry4_CI_CO[1])
+                                                      0.178    33.781 r  quotient_reg[19]_i_1/CO[1]
+                         net (fo=44, estimated)       0.672    34.453    quotient_reg[19]_i_1_n_2
+    SLICE_X60Y71         LUT3 (Prop_lut3_I0_O)        0.329    34.782 r  quotient[18]_i_37/O
+                         net (fo=1, routed)           0.000    34.782    quotient[18]_i_37_n_0
+    SLICE_X60Y71         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.533    35.315 r  quotient_reg[18]_i_30/CO[3]
+                         net (fo=1, estimated)        0.000    35.315    quotient_reg[18]_i_30_n_0
+    SLICE_X60Y72         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    35.432 r  quotient_reg[18]_i_25/CO[3]
+                         net (fo=1, estimated)        0.000    35.432    quotient_reg[18]_i_25_n_0
+    SLICE_X60Y73         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    35.549 r  quotient_reg[18]_i_20/CO[3]
+                         net (fo=1, estimated)        0.000    35.549    quotient_reg[18]_i_20_n_0
+    SLICE_X60Y74         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    35.666 r  quotient_reg[18]_i_15/CO[3]
+                         net (fo=1, estimated)        0.009    35.675    quotient_reg[18]_i_15_n_0
+    SLICE_X60Y75         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    35.792 r  quotient_reg[18]_i_10/CO[3]
+                         net (fo=1, estimated)        0.000    35.792    quotient_reg[18]_i_10_n_0
+    SLICE_X60Y76         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    35.909 r  quotient_reg[18]_i_5/CO[3]
+                         net (fo=1, estimated)        0.000    35.909    quotient_reg[18]_i_5_n_0
+    SLICE_X60Y77         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    36.026 r  quotient_reg[18]_i_2/CO[3]
+                         net (fo=1, estimated)        0.000    36.026    quotient_reg[18]_i_2_n_0
+    SLICE_X60Y78         CARRY4 (Prop_carry4_CI_CO[2])
+                                                      0.252    36.278 r  quotient_reg[18]_i_1/CO[2]
+                         net (fo=46, estimated)       0.569    36.847    quotient_reg[18]_i_1_n_1
+    SLICE_X61Y75         LUT3 (Prop_lut3_I0_O)        0.310    37.157 r  quotient[17]_i_38/O
+                         net (fo=1, routed)           0.000    37.157    quotient[17]_i_38_n_0
+    SLICE_X61Y75         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550    37.707 r  quotient_reg[17]_i_31/CO[3]
+                         net (fo=1, estimated)        0.000    37.707    quotient_reg[17]_i_31_n_0
+    SLICE_X61Y76         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    37.821 r  quotient_reg[17]_i_26/CO[3]
+                         net (fo=1, estimated)        0.000    37.821    quotient_reg[17]_i_26_n_0
+    SLICE_X61Y77         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    37.935 r  quotient_reg[17]_i_21/CO[3]
+                         net (fo=1, estimated)        0.000    37.935    quotient_reg[17]_i_21_n_0
+    SLICE_X61Y78         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    38.049 r  quotient_reg[17]_i_16/CO[3]
+                         net (fo=1, estimated)        0.000    38.049    quotient_reg[17]_i_16_n_0
+    SLICE_X61Y79         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    38.163 r  quotient_reg[17]_i_11/CO[3]
+                         net (fo=1, estimated)        0.000    38.163    quotient_reg[17]_i_11_n_0
+    SLICE_X61Y80         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    38.277 r  quotient_reg[17]_i_6/CO[3]
+                         net (fo=1, estimated)        0.000    38.277    quotient_reg[17]_i_6_n_0
+    SLICE_X61Y81         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    38.391 r  quotient_reg[17]_i_2/CO[3]
+                         net (fo=1, estimated)        0.000    38.391    quotient_reg[17]_i_2_n_0
+    SLICE_X61Y82         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    38.505 r  quotient_reg[17]_i_1/CO[3]
+                         net (fo=48, estimated)       0.743    39.248    quotient_reg[17]_i_1_n_0
+    SLICE_X63Y76         CARRY4 (Prop_carry4_CYINIT_CO[3])
+                                                      0.580    39.828 r  quotient_reg[16]_i_33/CO[3]
+                         net (fo=1, estimated)        0.000    39.828    quotient_reg[16]_i_33_n_0
+    SLICE_X63Y77         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    39.942 r  quotient_reg[16]_i_28/CO[3]
+                         net (fo=1, estimated)        0.000    39.942    quotient_reg[16]_i_28_n_0
+    SLICE_X63Y78         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    40.056 r  quotient_reg[16]_i_23/CO[3]
+                         net (fo=1, estimated)        0.000    40.056    quotient_reg[16]_i_23_n_0
+    SLICE_X63Y79         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    40.170 r  quotient_reg[16]_i_18/CO[3]
+                         net (fo=1, estimated)        0.000    40.170    quotient_reg[16]_i_18_n_0
+    SLICE_X63Y80         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    40.284 r  quotient_reg[16]_i_13/CO[3]
+                         net (fo=1, estimated)        0.000    40.284    quotient_reg[16]_i_13_n_0
+    SLICE_X63Y81         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    40.398 r  quotient_reg[16]_i_8/CO[3]
+                         net (fo=1, estimated)        0.000    40.398    quotient_reg[16]_i_8_n_0
+    SLICE_X63Y82         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    40.512 r  quotient_reg[16]_i_3/CO[3]
+                         net (fo=1, estimated)        0.000    40.512    quotient_reg[16]_i_3_n_0
+    SLICE_X63Y83         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    40.626 r  quotient_reg[16]_i_2/CO[3]
+                         net (fo=1, estimated)        0.000    40.626    quotient_reg[16]_i_2_n_0
+    SLICE_X63Y84         CARRY4 (Prop_carry4_CI_CO[0])
+                                                      0.293    40.919 r  quotient_reg[16]_i_1/CO[0]
+                         net (fo=50, estimated)       1.029    41.948    quotient_reg[16]_i_1_n_3
+    SLICE_X62Y72         CARRY4 (Prop_carry4_CYINIT_CO[3])
+                                                      0.829    42.777 r  quotient_reg[15]_i_34/CO[3]
+                         net (fo=1, estimated)        0.000    42.777    quotient_reg[15]_i_34_n_0
+    SLICE_X62Y73         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    42.891 r  quotient_reg[15]_i_29/CO[3]
+                         net (fo=1, estimated)        0.000    42.891    quotient_reg[15]_i_29_n_0
+    SLICE_X62Y74         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    43.005 r  quotient_reg[15]_i_24/CO[3]
+                         net (fo=1, estimated)        0.009    43.014    quotient_reg[15]_i_24_n_0
+    SLICE_X62Y75         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    43.128 r  quotient_reg[15]_i_19/CO[3]
+                         net (fo=1, estimated)        0.000    43.128    quotient_reg[15]_i_19_n_0
+    SLICE_X62Y76         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    43.242 r  quotient_reg[15]_i_14/CO[3]
+                         net (fo=1, estimated)        0.000    43.242    quotient_reg[15]_i_14_n_0
+    SLICE_X62Y77         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    43.356 r  quotient_reg[15]_i_9/CO[3]
+                         net (fo=1, estimated)        0.000    43.356    quotient_reg[15]_i_9_n_0
+    SLICE_X62Y78         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    43.470 r  quotient_reg[15]_i_4/CO[3]
+                         net (fo=1, estimated)        0.000    43.470    quotient_reg[15]_i_4_n_0
+    SLICE_X62Y79         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    43.584 r  quotient_reg[15]_i_2/CO[3]
+                         net (fo=1, estimated)        0.000    43.584    quotient_reg[15]_i_2_n_0
+    SLICE_X62Y80         CARRY4 (Prop_carry4_CI_CO[1])
+                                                      0.178    43.762 r  quotient_reg[15]_i_1/CO[1]
+                         net (fo=52, estimated)       1.191    44.953    quotient_reg[15]_i_1_n_2
+    SLICE_X63Y58         LUT3 (Prop_lut3_I0_O)        0.329    45.282 r  quotient[14]_i_42/O
+                         net (fo=1, routed)           0.000    45.282    quotient[14]_i_42_n_0
+    SLICE_X63Y58         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550    45.832 r  quotient_reg[14]_i_35/CO[3]
+                         net (fo=1, estimated)        0.000    45.832    quotient_reg[14]_i_35_n_0
+    SLICE_X63Y59         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    45.946 r  quotient_reg[14]_i_30/CO[3]
+                         net (fo=1, estimated)        0.000    45.946    quotient_reg[14]_i_30_n_0
+    SLICE_X63Y60         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    46.060 r  quotient_reg[14]_i_25/CO[3]
+                         net (fo=1, estimated)        0.000    46.060    quotient_reg[14]_i_25_n_0
+    SLICE_X63Y61         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    46.174 r  quotient_reg[14]_i_20/CO[3]
+                         net (fo=1, estimated)        0.000    46.174    quotient_reg[14]_i_20_n_0
+    SLICE_X63Y62         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    46.288 r  quotient_reg[14]_i_15/CO[3]
+                         net (fo=1, estimated)        0.000    46.288    quotient_reg[14]_i_15_n_0
+    SLICE_X63Y63         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    46.402 r  quotient_reg[14]_i_10/CO[3]
+                         net (fo=1, estimated)        0.000    46.402    quotient_reg[14]_i_10_n_0
+    SLICE_X63Y64         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    46.516 r  quotient_reg[14]_i_5/CO[3]
+                         net (fo=1, estimated)        0.000    46.516    quotient_reg[14]_i_5_n_0
+    SLICE_X63Y65         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    46.630 r  quotient_reg[14]_i_2/CO[3]
+                         net (fo=1, estimated)        0.000    46.630    quotient_reg[14]_i_2_n_0
+    SLICE_X63Y66         CARRY4 (Prop_carry4_CI_CO[1])
+                                                      0.178    46.808 r  quotient_reg[14]_i_1/CO[1]
+                         net (fo=52, estimated)       0.962    47.770    quotient_reg[14]_i_1_n_2
+    SLICE_X58Y62         LUT3 (Prop_lut3_I0_O)        0.329    48.099 r  quotient[13]_i_39/O
+                         net (fo=1, routed)           0.000    48.099    quotient[13]_i_39_n_0
+    SLICE_X58Y62         CARRY4 (Prop_carry4_S[0]_CO[3])
+                                                      0.532    48.631 r  quotient_reg[13]_i_30/CO[3]
+                         net (fo=1, estimated)        0.000    48.631    quotient_reg[13]_i_30_n_0
+    SLICE_X58Y63         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    48.745 r  quotient_reg[13]_i_25/CO[3]
+                         net (fo=1, estimated)        0.000    48.745    quotient_reg[13]_i_25_n_0
+    SLICE_X58Y64         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    48.859 r  quotient_reg[13]_i_20/CO[3]
+                         net (fo=1, estimated)        0.000    48.859    quotient_reg[13]_i_20_n_0
+    SLICE_X58Y65         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    48.973 r  quotient_reg[13]_i_15/CO[3]
+                         net (fo=1, estimated)        0.000    48.973    quotient_reg[13]_i_15_n_0
+    SLICE_X58Y66         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    49.087 r  quotient_reg[13]_i_10/CO[3]
+                         net (fo=1, estimated)        0.000    49.087    quotient_reg[13]_i_10_n_0
+    SLICE_X58Y67         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    49.201 r  quotient_reg[13]_i_5/CO[3]
+                         net (fo=1, estimated)        0.000    49.201    quotient_reg[13]_i_5_n_0
+    SLICE_X58Y68         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    49.315 r  quotient_reg[13]_i_2/CO[3]
+                         net (fo=1, estimated)        0.000    49.315    quotient_reg[13]_i_2_n_0
+    SLICE_X58Y69         CARRY4 (Prop_carry4_CI_CO[1])
+                                                      0.178    49.493 r  quotient_reg[13]_i_1/CO[1]
+                         net (fo=52, estimated)       0.618    50.111    quotient_reg[13]_i_1_n_2
+    SLICE_X58Y70         CARRY4 (Prop_carry4_CYINIT_CO[3])
+                                                      0.785    50.896 r  quotient_reg[12]_i_35/CO[3]
+                         net (fo=1, estimated)        0.000    50.896    quotient_reg[12]_i_35_n_0
+    SLICE_X58Y71         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    51.010 r  quotient_reg[12]_i_30/CO[3]
+                         net (fo=1, estimated)        0.000    51.010    quotient_reg[12]_i_30_n_0
+    SLICE_X58Y72         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    51.124 r  quotient_reg[12]_i_25/CO[3]
+                         net (fo=1, estimated)        0.000    51.124    quotient_reg[12]_i_25_n_0
+    SLICE_X58Y73         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    51.238 r  quotient_reg[12]_i_20/CO[3]
+                         net (fo=1, estimated)        0.000    51.238    quotient_reg[12]_i_20_n_0
+    SLICE_X58Y74         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    51.352 r  quotient_reg[12]_i_15/CO[3]
+                         net (fo=1, estimated)        0.009    51.361    quotient_reg[12]_i_15_n_0
+    SLICE_X58Y75         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    51.475 r  quotient_reg[12]_i_10/CO[3]
+                         net (fo=1, estimated)        0.000    51.475    quotient_reg[12]_i_10_n_0
+    SLICE_X58Y76         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    51.589 r  quotient_reg[12]_i_5/CO[3]
+                         net (fo=1, estimated)        0.000    51.589    quotient_reg[12]_i_5_n_0
+    SLICE_X58Y77         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    51.703 r  quotient_reg[12]_i_2/CO[3]
+                         net (fo=1, estimated)        0.000    51.703    quotient_reg[12]_i_2_n_0
+    SLICE_X58Y78         CARRY4 (Prop_carry4_CI_CO[1])
+                                                      0.178    51.881 r  quotient_reg[12]_i_1/CO[1]
+                         net (fo=52, estimated)       0.641    52.522    quotient_reg[12]_i_1_n_2
+    SLICE_X59Y76         LUT3 (Prop_lut3_I0_O)        0.329    52.851 r  quotient[11]_i_42/O
+                         net (fo=1, routed)           0.000    52.851    quotient[11]_i_42_n_0
+    SLICE_X59Y76         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550    53.401 r  quotient_reg[11]_i_35/CO[3]
+                         net (fo=1, estimated)        0.000    53.401    quotient_reg[11]_i_35_n_0
+    SLICE_X59Y77         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    53.515 r  quotient_reg[11]_i_30/CO[3]
+                         net (fo=1, estimated)        0.000    53.515    quotient_reg[11]_i_30_n_0
+    SLICE_X59Y78         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    53.629 r  quotient_reg[11]_i_25/CO[3]
+                         net (fo=1, estimated)        0.000    53.629    quotient_reg[11]_i_25_n_0
+    SLICE_X59Y79         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    53.743 r  quotient_reg[11]_i_20/CO[3]
+                         net (fo=1, estimated)        0.000    53.743    quotient_reg[11]_i_20_n_0
+    SLICE_X59Y80         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    53.857 r  quotient_reg[11]_i_15/CO[3]
+                         net (fo=1, estimated)        0.000    53.857    quotient_reg[11]_i_15_n_0
+    SLICE_X59Y81         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    53.971 r  quotient_reg[11]_i_10/CO[3]
+                         net (fo=1, estimated)        0.000    53.971    quotient_reg[11]_i_10_n_0
+    SLICE_X59Y82         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    54.085 r  quotient_reg[11]_i_5/CO[3]
+                         net (fo=1, estimated)        0.000    54.085    quotient_reg[11]_i_5_n_0
+    SLICE_X59Y83         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    54.199 r  quotient_reg[11]_i_2/CO[3]
+                         net (fo=1, estimated)        0.000    54.199    quotient_reg[11]_i_2_n_0
+    SLICE_X59Y84         CARRY4 (Prop_carry4_CI_CO[1])
+                                                      0.178    54.377 r  quotient_reg[11]_i_1/CO[1]
+                         net (fo=52, estimated)       0.717    55.094    quotient_reg[11]_i_1_n_2
+    SLICE_X58Y80         LUT3 (Prop_lut3_I0_O)        0.329    55.423 r  quotient[10]_i_42/O
+                         net (fo=1, routed)           0.000    55.423    quotient[10]_i_42_n_0
+    SLICE_X58Y80         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550    55.973 r  quotient_reg[10]_i_35/CO[3]
+                         net (fo=1, estimated)        0.000    55.973    quotient_reg[10]_i_35_n_0
+    SLICE_X58Y81         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    56.087 r  quotient_reg[10]_i_30/CO[3]
+                         net (fo=1, estimated)        0.000    56.087    quotient_reg[10]_i_30_n_0
+    SLICE_X58Y82         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    56.201 r  quotient_reg[10]_i_25/CO[3]
+                         net (fo=1, estimated)        0.000    56.201    quotient_reg[10]_i_25_n_0
+    SLICE_X58Y83         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    56.315 r  quotient_reg[10]_i_20/CO[3]
+                         net (fo=1, estimated)        0.000    56.315    quotient_reg[10]_i_20_n_0
+    SLICE_X58Y84         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    56.429 r  quotient_reg[10]_i_15/CO[3]
+                         net (fo=1, estimated)        0.000    56.429    quotient_reg[10]_i_15_n_0
+    SLICE_X58Y85         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    56.543 r  quotient_reg[10]_i_10/CO[3]
+                         net (fo=1, estimated)        0.000    56.543    quotient_reg[10]_i_10_n_0
+    SLICE_X58Y86         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    56.657 r  quotient_reg[10]_i_5/CO[3]
+                         net (fo=1, estimated)        0.000    56.657    quotient_reg[10]_i_5_n_0
+    SLICE_X58Y87         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    56.771 r  quotient_reg[10]_i_2/CO[3]
+                         net (fo=1, estimated)        0.000    56.771    quotient_reg[10]_i_2_n_0
+    SLICE_X58Y88         CARRY4 (Prop_carry4_CI_CO[1])
+                                                      0.178    56.949 r  quotient_reg[10]_i_1/CO[1]
+                         net (fo=52, estimated)       0.641    57.590    quotient_reg[10]_i_1_n_2
+    SLICE_X59Y86         LUT3 (Prop_lut3_I0_O)        0.329    57.919 r  quotient[9]_i_42/O
+                         net (fo=1, routed)           0.000    57.919    quotient[9]_i_42_n_0
+    SLICE_X59Y86         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550    58.469 r  quotient_reg[9]_i_35/CO[3]
+                         net (fo=1, estimated)        0.000    58.469    quotient_reg[9]_i_35_n_0
+    SLICE_X59Y87         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    58.583 r  quotient_reg[9]_i_30/CO[3]
+                         net (fo=1, estimated)        0.000    58.583    quotient_reg[9]_i_30_n_0
+    SLICE_X59Y88         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    58.697 r  quotient_reg[9]_i_25/CO[3]
+                         net (fo=1, estimated)        0.000    58.697    quotient_reg[9]_i_25_n_0
+    SLICE_X59Y89         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    58.811 r  quotient_reg[9]_i_20/CO[3]
+                         net (fo=1, estimated)        0.000    58.811    quotient_reg[9]_i_20_n_0
+    SLICE_X59Y90         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    58.925 r  quotient_reg[9]_i_15/CO[3]
+                         net (fo=1, estimated)        0.000    58.925    quotient_reg[9]_i_15_n_0
+    SLICE_X59Y91         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    59.039 r  quotient_reg[9]_i_10/CO[3]
+                         net (fo=1, estimated)        0.000    59.039    quotient_reg[9]_i_10_n_0
+    SLICE_X59Y92         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    59.153 r  quotient_reg[9]_i_5/CO[3]
+                         net (fo=1, estimated)        0.000    59.153    quotient_reg[9]_i_5_n_0
+    SLICE_X59Y93         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    59.267 r  quotient_reg[9]_i_2/CO[3]
+                         net (fo=1, estimated)        0.000    59.267    quotient_reg[9]_i_2_n_0
+    SLICE_X59Y94         CARRY4 (Prop_carry4_CI_CO[1])
+                                                      0.178    59.445 r  quotient_reg[9]_i_1/CO[1]
+                         net (fo=52, estimated)       0.928    60.373    quotient_reg[9]_i_1_n_2
+    SLICE_X58Y89         LUT3 (Prop_lut3_I0_O)        0.329    60.702 r  quotient[8]_i_42/O
+                         net (fo=1, routed)           0.000    60.702    quotient[8]_i_42_n_0
+    SLICE_X58Y89         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550    61.252 r  quotient_reg[8]_i_35/CO[3]
+                         net (fo=1, estimated)        0.000    61.252    quotient_reg[8]_i_35_n_0
+    SLICE_X58Y90         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    61.366 r  quotient_reg[8]_i_30/CO[3]
+                         net (fo=1, estimated)        0.000    61.366    quotient_reg[8]_i_30_n_0
+    SLICE_X58Y91         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    61.480 r  quotient_reg[8]_i_25/CO[3]
+                         net (fo=1, estimated)        0.000    61.480    quotient_reg[8]_i_25_n_0
+    SLICE_X58Y92         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    61.594 r  quotient_reg[8]_i_20/CO[3]
+                         net (fo=1, estimated)        0.000    61.594    quotient_reg[8]_i_20_n_0
+    SLICE_X58Y93         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    61.708 r  quotient_reg[8]_i_15/CO[3]
+                         net (fo=1, estimated)        0.000    61.708    quotient_reg[8]_i_15_n_0
+    SLICE_X58Y94         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    61.822 r  quotient_reg[8]_i_10/CO[3]
+                         net (fo=1, estimated)        0.000    61.822    quotient_reg[8]_i_10_n_0
+    SLICE_X58Y95         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    61.936 r  quotient_reg[8]_i_5/CO[3]
+                         net (fo=1, estimated)        0.000    61.936    quotient_reg[8]_i_5_n_0
+    SLICE_X58Y96         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    62.050 r  quotient_reg[8]_i_2/CO[3]
+                         net (fo=1, estimated)        0.000    62.050    quotient_reg[8]_i_2_n_0
+    SLICE_X58Y97         CARRY4 (Prop_carry4_CI_CO[1])
+                                                      0.178    62.228 r  quotient_reg[8]_i_1/CO[1]
+                         net (fo=52, estimated)       0.944    63.172    quotient_reg[8]_i_1_n_2
+    SLICE_X57Y92         LUT3 (Prop_lut3_I0_O)        0.329    63.501 r  quotient[7]_i_42/O
+                         net (fo=1, routed)           0.000    63.501    quotient[7]_i_42_n_0
+    SLICE_X57Y92         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550    64.051 r  quotient_reg[7]_i_35/CO[3]
+                         net (fo=1, estimated)        0.000    64.051    quotient_reg[7]_i_35_n_0
+    SLICE_X57Y93         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    64.165 r  quotient_reg[7]_i_30/CO[3]
+                         net (fo=1, estimated)        0.000    64.165    quotient_reg[7]_i_30_n_0
+    SLICE_X57Y94         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    64.279 r  quotient_reg[7]_i_25/CO[3]
+                         net (fo=1, estimated)        0.000    64.279    quotient_reg[7]_i_25_n_0
+    SLICE_X57Y95         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    64.393 r  quotient_reg[7]_i_20/CO[3]
+                         net (fo=1, estimated)        0.000    64.393    quotient_reg[7]_i_20_n_0
+    SLICE_X57Y96         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    64.507 r  quotient_reg[7]_i_15/CO[3]
+                         net (fo=1, estimated)        0.000    64.507    quotient_reg[7]_i_15_n_0
+    SLICE_X57Y97         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    64.621 r  quotient_reg[7]_i_10/CO[3]
+                         net (fo=1, estimated)        0.000    64.621    quotient_reg[7]_i_10_n_0
+    SLICE_X57Y98         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    64.735 r  quotient_reg[7]_i_5/CO[3]
+                         net (fo=1, estimated)        0.000    64.735    quotient_reg[7]_i_5_n_0
+    SLICE_X57Y99         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    64.849 r  quotient_reg[7]_i_2/CO[3]
+                         net (fo=1, estimated)        0.000    64.849    quotient_reg[7]_i_2_n_0
+    SLICE_X57Y100        CARRY4 (Prop_carry4_CI_CO[1])
+                                                      0.178    65.027 r  quotient_reg[7]_i_1/CO[1]
+                         net (fo=52, estimated)       0.545    65.572    quotient_reg[7]_i_1_n_2
+    SLICE_X57Y101        LUT3 (Prop_lut3_I0_O)        0.329    65.901 r  quotient[6]_i_42/O
+                         net (fo=1, routed)           0.000    65.901    quotient[6]_i_42_n_0
+    SLICE_X57Y101        CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550    66.451 r  quotient_reg[6]_i_35/CO[3]
+                         net (fo=1, estimated)        0.000    66.451    quotient_reg[6]_i_35_n_0
+    SLICE_X57Y102        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    66.565 r  quotient_reg[6]_i_30/CO[3]
+                         net (fo=1, estimated)        0.000    66.565    quotient_reg[6]_i_30_n_0
+    SLICE_X57Y103        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    66.679 r  quotient_reg[6]_i_25/CO[3]
+                         net (fo=1, estimated)        0.000    66.679    quotient_reg[6]_i_25_n_0
+    SLICE_X57Y104        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    66.793 r  quotient_reg[6]_i_20/CO[3]
+                         net (fo=1, estimated)        0.000    66.793    quotient_reg[6]_i_20_n_0
+    SLICE_X57Y105        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    66.907 r  quotient_reg[6]_i_15/CO[3]
+                         net (fo=1, estimated)        0.000    66.907    quotient_reg[6]_i_15_n_0
+    SLICE_X57Y106        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    67.021 r  quotient_reg[6]_i_10/CO[3]
+                         net (fo=1, estimated)        0.000    67.021    quotient_reg[6]_i_10_n_0
+    SLICE_X57Y107        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    67.135 r  quotient_reg[6]_i_5/CO[3]
+                         net (fo=1, estimated)        0.000    67.135    quotient_reg[6]_i_5_n_0
+    SLICE_X57Y108        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    67.249 r  quotient_reg[6]_i_2/CO[3]
+                         net (fo=1, estimated)        0.000    67.249    quotient_reg[6]_i_2_n_0
+    SLICE_X57Y109        CARRY4 (Prop_carry4_CI_CO[1])
+                                                      0.178    67.427 r  quotient_reg[6]_i_1/CO[1]
+                         net (fo=52, estimated)       1.027    68.454    quotient_reg[6]_i_1_n_2
+    SLICE_X55Y98         LUT3 (Prop_lut3_I0_O)        0.329    68.783 r  quotient[5]_i_42/O
+                         net (fo=1, routed)           0.000    68.783    quotient[5]_i_42_n_0
+    SLICE_X55Y98         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550    69.333 r  quotient_reg[5]_i_35/CO[3]
+                         net (fo=1, estimated)        0.000    69.333    quotient_reg[5]_i_35_n_0
+    SLICE_X55Y99         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    69.447 r  quotient_reg[5]_i_30/CO[3]
+                         net (fo=1, estimated)        0.000    69.447    quotient_reg[5]_i_30_n_0
+    SLICE_X55Y100        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    69.561 r  quotient_reg[5]_i_25/CO[3]
+                         net (fo=1, estimated)        0.000    69.561    quotient_reg[5]_i_25_n_0
+    SLICE_X55Y101        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    69.675 r  quotient_reg[5]_i_20/CO[3]
+                         net (fo=1, estimated)        0.000    69.675    quotient_reg[5]_i_20_n_0
+    SLICE_X55Y102        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    69.789 r  quotient_reg[5]_i_15/CO[3]
+                         net (fo=1, estimated)        0.000    69.789    quotient_reg[5]_i_15_n_0
+    SLICE_X55Y103        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    69.903 r  quotient_reg[5]_i_10/CO[3]
+                         net (fo=1, estimated)        0.000    69.903    quotient_reg[5]_i_10_n_0
+    SLICE_X55Y104        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    70.017 r  quotient_reg[5]_i_5/CO[3]
+                         net (fo=1, estimated)        0.000    70.017    quotient_reg[5]_i_5_n_0
+    SLICE_X55Y105        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    70.131 r  quotient_reg[5]_i_2/CO[3]
+                         net (fo=1, estimated)        0.000    70.131    quotient_reg[5]_i_2_n_0
+    SLICE_X55Y106        CARRY4 (Prop_carry4_CI_CO[1])
+                                                      0.178    70.309 r  quotient_reg[5]_i_1/CO[1]
+                         net (fo=52, estimated)       0.881    71.190    quotient_reg[5]_i_1_n_2
+    SLICE_X56Y97         LUT3 (Prop_lut3_I0_O)        0.329    71.519 r  quotient[4]_i_42/O
+                         net (fo=1, routed)           0.000    71.519    quotient[4]_i_42_n_0
+    SLICE_X56Y97         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.533    72.052 r  quotient_reg[4]_i_35/CO[3]
+                         net (fo=1, estimated)        0.000    72.052    quotient_reg[4]_i_35_n_0
+    SLICE_X56Y98         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    72.169 r  quotient_reg[4]_i_30/CO[3]
+                         net (fo=1, estimated)        0.000    72.169    quotient_reg[4]_i_30_n_0
+    SLICE_X56Y99         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    72.286 r  quotient_reg[4]_i_25/CO[3]
+                         net (fo=1, estimated)        0.000    72.286    quotient_reg[4]_i_25_n_0
+    SLICE_X56Y100        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    72.403 r  quotient_reg[4]_i_20/CO[3]
+                         net (fo=1, estimated)        0.000    72.403    quotient_reg[4]_i_20_n_0
+    SLICE_X56Y101        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    72.520 r  quotient_reg[4]_i_15/CO[3]
+                         net (fo=1, estimated)        0.000    72.520    quotient_reg[4]_i_15_n_0
+    SLICE_X56Y102        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    72.637 r  quotient_reg[4]_i_10/CO[3]
+                         net (fo=1, estimated)        0.000    72.637    quotient_reg[4]_i_10_n_0
+    SLICE_X56Y103        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    72.754 r  quotient_reg[4]_i_5/CO[3]
+                         net (fo=1, estimated)        0.000    72.754    quotient_reg[4]_i_5_n_0
+    SLICE_X56Y104        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    72.871 r  quotient_reg[4]_i_2/CO[3]
+                         net (fo=1, estimated)        0.000    72.871    quotient_reg[4]_i_2_n_0
+    SLICE_X56Y105        CARRY4 (Prop_carry4_CI_CO[1])
+                                                      0.179    73.050 r  quotient_reg[4]_i_1/CO[1]
+                         net (fo=52, estimated)       0.720    73.770    quotient_reg[4]_i_1_n_2
+    SLICE_X54Y101        LUT3 (Prop_lut3_I0_O)        0.332    74.102 r  quotient[3]_i_42/O
+                         net (fo=1, routed)           0.000    74.102    quotient[3]_i_42_n_0
+    SLICE_X54Y101        CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.533    74.635 r  quotient_reg[3]_i_35/CO[3]
+                         net (fo=1, estimated)        0.000    74.635    quotient_reg[3]_i_35_n_0
+    SLICE_X54Y102        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    74.752 r  quotient_reg[3]_i_30/CO[3]
+                         net (fo=1, estimated)        0.000    74.752    quotient_reg[3]_i_30_n_0
+    SLICE_X54Y103        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    74.869 r  quotient_reg[3]_i_25/CO[3]
+                         net (fo=1, estimated)        0.000    74.869    quotient_reg[3]_i_25_n_0
+    SLICE_X54Y104        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    74.986 r  quotient_reg[3]_i_20/CO[3]
+                         net (fo=1, estimated)        0.000    74.986    quotient_reg[3]_i_20_n_0
+    SLICE_X54Y105        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    75.103 r  quotient_reg[3]_i_15/CO[3]
+                         net (fo=1, estimated)        0.000    75.103    quotient_reg[3]_i_15_n_0
+    SLICE_X54Y106        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    75.220 r  quotient_reg[3]_i_10/CO[3]
+                         net (fo=1, estimated)        0.000    75.220    quotient_reg[3]_i_10_n_0
+    SLICE_X54Y107        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    75.337 r  quotient_reg[3]_i_5/CO[3]
+                         net (fo=1, estimated)        0.000    75.337    quotient_reg[3]_i_5_n_0
+    SLICE_X54Y108        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    75.454 r  quotient_reg[3]_i_2/CO[3]
+                         net (fo=1, estimated)        0.000    75.454    quotient_reg[3]_i_2_n_0
+    SLICE_X54Y109        CARRY4 (Prop_carry4_CI_CO[1])
+                                                      0.179    75.633 r  quotient_reg[3]_i_1/CO[1]
+                         net (fo=52, estimated)       0.544    76.177    quotient_reg[3]_i_1_n_2
+    SLICE_X55Y108        LUT3 (Prop_lut3_I0_O)        0.332    76.509 r  quotient[2]_i_42/O
+                         net (fo=1, routed)           0.000    76.509    quotient[2]_i_42_n_0
+    SLICE_X55Y108        CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550    77.059 r  quotient_reg[2]_i_35/CO[3]
+                         net (fo=1, estimated)        0.000    77.059    quotient_reg[2]_i_35_n_0
+    SLICE_X55Y109        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    77.173 r  quotient_reg[2]_i_30/CO[3]
+                         net (fo=1, estimated)        0.000    77.173    quotient_reg[2]_i_30_n_0
+    SLICE_X55Y110        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    77.287 r  quotient_reg[2]_i_25/CO[3]
+                         net (fo=1, estimated)        0.000    77.287    quotient_reg[2]_i_25_n_0
+    SLICE_X55Y111        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    77.401 r  quotient_reg[2]_i_20/CO[3]
+                         net (fo=1, estimated)        0.000    77.401    quotient_reg[2]_i_20_n_0
+    SLICE_X55Y112        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    77.515 r  quotient_reg[2]_i_15/CO[3]
+                         net (fo=1, estimated)        0.000    77.515    quotient_reg[2]_i_15_n_0
+    SLICE_X55Y113        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    77.629 r  quotient_reg[2]_i_10/CO[3]
+                         net (fo=1, estimated)        0.000    77.629    quotient_reg[2]_i_10_n_0
+    SLICE_X55Y114        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    77.743 r  quotient_reg[2]_i_5/CO[3]
+                         net (fo=1, estimated)        0.000    77.743    quotient_reg[2]_i_5_n_0
+    SLICE_X55Y115        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    77.857 r  quotient_reg[2]_i_2/CO[3]
+                         net (fo=1, estimated)        0.000    77.857    quotient_reg[2]_i_2_n_0
+    SLICE_X55Y116        CARRY4 (Prop_carry4_CI_CO[1])
+                                                      0.178    78.035 r  quotient_reg[2]_i_1/CO[1]
+                         net (fo=52, estimated)       0.536    78.571    quotient_reg[2]_i_1_n_2
+    SLICE_X56Y115        LUT3 (Prop_lut3_I0_O)        0.329    78.900 r  quotient[1]_i_42/O
+                         net (fo=1, routed)           0.000    78.900    quotient[1]_i_42_n_0
+    SLICE_X56Y115        CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.533    79.433 r  quotient_reg[1]_i_35/CO[3]
+                         net (fo=1, estimated)        0.000    79.433    quotient_reg[1]_i_35_n_0
+    SLICE_X56Y116        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    79.550 r  quotient_reg[1]_i_30/CO[3]
+                         net (fo=1, estimated)        0.000    79.550    quotient_reg[1]_i_30_n_0
+    SLICE_X56Y117        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    79.667 r  quotient_reg[1]_i_25/CO[3]
+                         net (fo=1, estimated)        0.000    79.667    quotient_reg[1]_i_25_n_0
+    SLICE_X56Y118        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    79.784 r  quotient_reg[1]_i_20/CO[3]
+                         net (fo=1, estimated)        0.000    79.784    quotient_reg[1]_i_20_n_0
+    SLICE_X56Y119        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    79.901 r  quotient_reg[1]_i_15/CO[3]
+                         net (fo=1, estimated)        0.000    79.901    quotient_reg[1]_i_15_n_0
+    SLICE_X56Y120        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    80.018 r  quotient_reg[1]_i_10/CO[3]
+                         net (fo=1, estimated)        0.000    80.018    quotient_reg[1]_i_10_n_0
+    SLICE_X56Y121        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    80.135 r  quotient_reg[1]_i_5/CO[3]
+                         net (fo=1, estimated)        0.000    80.135    quotient_reg[1]_i_5_n_0
+    SLICE_X56Y122        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    80.252 r  quotient_reg[1]_i_2/CO[3]
+                         net (fo=1, estimated)        0.000    80.252    quotient_reg[1]_i_2_n_0
+    SLICE_X56Y123        CARRY4 (Prop_carry4_CI_CO[1])
+                                                      0.179    80.431 r  quotient_reg[1]_i_1/CO[1]
+                         net (fo=52, estimated)       0.781    81.212    quotient_reg[1]_i_1_n_2
+    SLICE_X55Y121        LUT3 (Prop_lut3_I0_O)        0.332    81.544 r  quotient[0]_i_42/O
+                         net (fo=1, routed)           0.000    81.544    quotient[0]_i_42_n_0
+    SLICE_X55Y121        CARRY4 (Prop_carry4_S[0]_CO[3])
+                                                      0.532    82.076 r  quotient_reg[0]_i_34/CO[3]
+                         net (fo=1, estimated)        0.000    82.076    quotient_reg[0]_i_34_n_0
+    SLICE_X55Y122        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    82.190 r  quotient_reg[0]_i_29/CO[3]
+                         net (fo=1, estimated)        0.000    82.190    quotient_reg[0]_i_29_n_0
+    SLICE_X55Y123        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    82.304 r  quotient_reg[0]_i_24/CO[3]
+                         net (fo=1, estimated)        0.000    82.304    quotient_reg[0]_i_24_n_0
+    SLICE_X55Y124        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    82.418 r  quotient_reg[0]_i_19/CO[3]
+                         net (fo=1, estimated)        0.009    82.427    quotient_reg[0]_i_19_n_0
+    SLICE_X55Y125        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    82.541 r  quotient_reg[0]_i_14/CO[3]
+                         net (fo=1, estimated)        0.000    82.541    quotient_reg[0]_i_14_n_0
+    SLICE_X55Y126        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    82.655 r  quotient_reg[0]_i_9/CO[3]
+                         net (fo=1, estimated)        0.000    82.655    quotient_reg[0]_i_9_n_0
+    SLICE_X55Y127        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    82.769 r  quotient_reg[0]_i_4/CO[3]
+                         net (fo=1, estimated)        0.000    82.769    quotient_reg[0]_i_4_n_0
+    SLICE_X55Y128        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    82.883 r  quotient_reg[0]_i_2/CO[3]
+                         net (fo=1, estimated)        0.000    82.883    quotient_reg[0]_i_2_n_0
+    SLICE_X55Y129        CARRY4 (Prop_carry4_CI_CO[0])
+                                                      0.271    83.154 r  quotient_reg[0]_i_1/CO[0]
+                         net (fo=1, routed)           0.000    83.154    quotient_reg[0]_i_1_n_3
+    SLICE_X55Y129        FDRE                                         r  quotient_reg[0]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock gclk rise edge)      10.000    10.000 r  
+    N15                                               0.000    10.000 r  clk_100mhz (IN)
+                         net (fo=0)                   0.000    10.000    clk_100mhz
+    N15                  IBUF (Prop_ibuf_I_O)         1.370    11.370 r  clk_100mhz_IBUF_inst/O
+                         net (fo=1, estimated)        1.873    13.244    clk_100mhz_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    13.335 r  clk_100mhz_IBUF_BUFG_inst/O
+                         net (fo=131, estimated)      1.599    14.934    clk_100mhz_IBUF_BUFG
+    SLICE_X55Y129        FDRE                                         r  quotient_reg[0]/C
+                         clock pessimism              0.182    15.115    
+                         clock uncertainty           -0.035    15.080    
+    SLICE_X55Y129        FDRE (Setup_fdre_C_D)        0.046    15.126    quotient_reg[0]
+  -------------------------------------------------------------------
+                         required time                         15.126    
+                         arrival time                         -83.154    
+  -------------------------------------------------------------------
+                         slack                                -68.028    
+
+
+
+

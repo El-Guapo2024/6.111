@@ -1,0 +1,138 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.1 (lin64) Build 3865809 Sun May  7 15:04:56 MDT 2023
+| Date         : Thu Oct  5 17:44:15 2023
+| Host         : worker running 64-bit Ubuntu 20.04.6 LTS
+| Command      : report_timing -file obj/post_synth_timing.rpt
+| Design       : top_level
+| Device       : 7s50-csga324
+| Speed File   : -1  PRODUCTION 1.23 2018-06-13
+| Design State : Synthesized
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Timing Report
+
+Slack (MET) :             0.649ns  (required time - arrival time)
+  Source:                 uut/divisor_reg[9][0]/C
+                            (rising edge-triggered cell FDRE clocked by gclk  {rise@0.000ns fall@4.000ns period=10.000ns})
+  Destination:            uut/p_reg[11][28]/D
+                            (rising edge-triggered cell FDRE clocked by gclk  {rise@0.000ns fall@4.000ns period=10.000ns})
+  Path Group:             gclk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (gclk rise@10.000ns - gclk rise@0.000ns)
+  Data Path Delay:        9.233ns  (logic 5.808ns (62.905%)  route 3.425ns (37.095%))
+  Logic Levels:           24  (CARRY4=20 LUT2=1 LUT3=2 LUT4=1)
+  Clock Path Skew:        -0.145ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.660ns = ( 12.660 - 10.000 ) 
+    Source Clock Delay      (SCD):    2.920ns
+    Clock Pessimism Removal (CPR):    0.115ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock gclk rise edge)       0.000     0.000 r  
+    N15                                               0.000     0.000 r  clk_100mhz (IN)
+                         net (fo=0)                   0.000     0.000    clk_100mhz
+    N15                  IBUF (Prop_ibuf_I_O)         1.440     1.440 r  clk_100mhz_IBUF_inst/O
+                         net (fo=1, unplaced)         0.800     2.240    clk_100mhz_IBUF
+                         BUFG (Prop_bufg_I_O)         0.096     2.336 r  clk_100mhz_IBUF_BUFG_inst/O
+                         net (fo=919, unplaced)       0.584     2.920    uut/clk_100mhz_IBUF_BUFG
+                         FDRE                                         r  uut/divisor_reg[9][0]/C
+  -------------------------------------------------------------------    -------------------
+                         FDRE (Prop_fdre_C_Q)         0.456     3.376 f  uut/divisor_reg[9][0]/Q
+                         net (fo=7, unplaced)         0.776     4.152    uut/divisor_reg[9]_16[0]
+                         LUT4 (Prop_lut4_I1_O)        0.321     4.473 r  uut/dividend_reg[29][19]_srl10_i_32/O
+                         net (fo=1, unplaced)         0.000     4.473    uut/dividend_reg[29][19]_srl10_i_32_n_0
+                         CARRY4 (Prop_carry4_DI[0]_CO[3])
+                                                      0.553     5.026 r  uut/dividend_reg[29][19]_srl10_i_20/CO[3]
+                         net (fo=1, unplaced)         0.009     5.035    uut/dividend_reg[29][19]_srl10_i_20_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     5.149 r  uut/dividend_reg[29][19]_srl10_i_11/CO[3]
+                         net (fo=1, unplaced)         0.000     5.149    uut/dividend_reg[29][19]_srl10_i_11_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     5.263 r  uut/dividend_reg[29][19]_srl10_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000     5.263    uut/dividend_reg[29][19]_srl10_i_2_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     5.377 r  uut/dividend_reg[29][19]_srl10_i_1/CO[3]
+                         net (fo=33, unplaced)        0.990     6.367    uut/dividend_reg[29][19]_srl10_i_1_n_0
+                         LUT3 (Prop_lut3_I2_O)        0.124     6.491 r  uut/p[11][6]_i_9/O
+                         net (fo=1, unplaced)         0.000     6.491    uut/p[11][6]_i_9_n_0
+                         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550     7.041 r  uut/p_reg[11][6]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.009     7.050    uut/p_reg[11][6]_i_2_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     7.164 r  uut/p_reg[11][10]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000     7.164    uut/p_reg[11][10]_i_2_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     7.278 r  uut/p_reg[11][14]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000     7.278    uut/p_reg[11][14]_i_2_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     7.392 r  uut/p_reg[11][18]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000     7.392    uut/p_reg[11][18]_i_2_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     7.506 r  uut/p_reg[11][22]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000     7.506    uut/p_reg[11][22]_i_2_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     7.620 r  uut/p_reg[11][26]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000     7.620    uut/p_reg[11][26]_i_2_n_0
+                         CARRY4 (Prop_carry4_CI_O[3])
+                                                      0.329     7.949 f  uut/p_reg[11][30]_i_3/O[3]
+                         net (fo=4, unplaced)         0.642     8.591    uut/p_reg[11][30]_i_3_n_4
+                         LUT2 (Prop_lut2_I1_O)        0.307     8.898 r  uut/dividend_reg[29][18]_srl10_i_9/O
+                         net (fo=1, unplaced)         0.000     8.898    uut/dividend_reg[29][18]_srl10_i_9_n_0
+                         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550     9.448 r  uut/dividend_reg[29][18]_srl10_i_1/CO[3]
+                         net (fo=33, unplaced)        0.990    10.438    uut/dividend_reg[29][18]_srl10_i_1_n_0
+                         LUT3 (Prop_lut3_I2_O)        0.124    10.562 r  uut/p[11][2]_i_4/O
+                         net (fo=1, unplaced)         0.000    10.562    uut/p[11][2]_i_4_n_0
+                         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550    11.112 r  uut/p_reg[11][2]_i_1/CO[3]
+                         net (fo=1, unplaced)         0.009    11.121    uut/p_reg[11][2]_i_1_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    11.235 r  uut/p_reg[11][6]_i_1/CO[3]
+                         net (fo=1, unplaced)         0.000    11.235    uut/p_reg[11][6]_i_1_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    11.349 r  uut/p_reg[11][10]_i_1/CO[3]
+                         net (fo=1, unplaced)         0.000    11.349    uut/p_reg[11][10]_i_1_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    11.463 r  uut/p_reg[11][14]_i_1/CO[3]
+                         net (fo=1, unplaced)         0.000    11.463    uut/p_reg[11][14]_i_1_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    11.577 r  uut/p_reg[11][18]_i_1/CO[3]
+                         net (fo=1, unplaced)         0.000    11.577    uut/p_reg[11][18]_i_1_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    11.691 r  uut/p_reg[11][22]_i_1/CO[3]
+                         net (fo=1, unplaced)         0.000    11.691    uut/p_reg[11][22]_i_1_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    11.805 r  uut/p_reg[11][26]_i_1/CO[3]
+                         net (fo=1, unplaced)         0.000    11.805    uut/p_reg[11][26]_i_1_n_0
+                         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.348    12.153 r  uut/p_reg[11][30]_i_1/O[1]
+                         net (fo=1, unplaced)         0.000    12.153    uut/p_reg[11][30]_i_1_n_6
+                         FDRE                                         r  uut/p_reg[11][28]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock gclk rise edge)      10.000    10.000 r  
+    N15                                               0.000    10.000 r  clk_100mhz (IN)
+                         net (fo=0)                   0.000    10.000    clk_100mhz
+    N15                  IBUF (Prop_ibuf_I_O)         1.370    11.370 r  clk_100mhz_IBUF_inst/O
+                         net (fo=1, unplaced)         0.760    12.130    clk_100mhz_IBUF
+                         BUFG (Prop_bufg_I_O)         0.091    12.221 r  clk_100mhz_IBUF_BUFG_inst/O
+                         net (fo=919, unplaced)       0.439    12.660    uut/clk_100mhz_IBUF_BUFG
+                         FDRE                                         r  uut/p_reg[11][28]/C
+                         clock pessimism              0.115    12.775    
+                         clock uncertainty           -0.035    12.740    
+                         FDRE (Setup_fdre_C_D)        0.062    12.802    uut/p_reg[11][28]
+  -------------------------------------------------------------------
+                         required time                         12.802    
+                         arrival time                         -12.153    
+  -------------------------------------------------------------------
+                         slack                                  0.649    
+
+
+
+

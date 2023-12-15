@@ -1,0 +1,98 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.1 (lin64) Build 3865809 Sun May  7 15:04:56 MDT 2023
+| Date         : Thu Oct  5 17:16:54 2023
+| Host         : worker running 64-bit Ubuntu 20.04.6 LTS
+| Command      : report_timing -file obj/post_route_timing.rpt
+| Design       : top_level
+| Device       : 7s50-csga324
+| Speed File   : -1  PRODUCTION 1.23 2018-06-13
+| Design State : Routed
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Timing Report
+
+Slack (MET) :             5.190ns  (required time - arrival time)
+  Source:                 uut/dividend_reg[31]/C
+                            (rising edge-triggered cell FDRE clocked by gclk  {rise@0.000ns fall@4.000ns period=10.000ns})
+  Destination:            uut/p_reg[28]/D
+                            (rising edge-triggered cell FDRE clocked by gclk  {rise@0.000ns fall@4.000ns period=10.000ns})
+  Path Group:             gclk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (gclk rise@10.000ns - gclk rise@0.000ns)
+  Data Path Delay:        4.825ns  (logic 2.480ns (51.395%)  route 2.345ns (48.605%))
+  Logic Levels:           10  (CARRY4=8 LUT2=1 LUT3=1)
+  Clock Path Skew:        -0.024ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.830ns = ( 14.830 - 10.000 ) 
+    Source Clock Delay      (SCD):    5.125ns
+    Clock Pessimism Removal (CPR):    0.271ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock gclk rise edge)       0.000     0.000 r  
+    N15                                               0.000     0.000 r  clk_100mhz (IN)
+                         net (fo=0)                   0.000     0.000    clk_100mhz
+    N15                  IBUF (Prop_ibuf_I_O)         1.440     1.440 r  clk_100mhz_IBUF_inst/O
+                         net (fo=1, routed)           1.972     3.412    clk_100mhz_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     3.508 r  clk_100mhz_IBUF_BUFG_inst/O
+                         net (fo=212, routed)         1.617     5.125    uut/clk_100mhz_IBUF_BUFG
+    SLICE_X65Y67         FDRE                                         r  uut/dividend_reg[31]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X65Y67         FDRE (Prop_fdre_C_Q)         0.419     5.544 r  uut/dividend_reg[31]/Q
+                         net (fo=5, routed)           1.268     6.812    uut/p_1_in[0]
+    SLICE_X62Y61         LUT2 (Prop_lut2_I1_O)        0.296     7.108 r  uut/p[3]_i_6/O
+                         net (fo=1, routed)           0.000     7.108    uut/p[3]_i_6_n_0
+    SLICE_X62Y61         CARRY4 (Prop_carry4_S[0]_CO[3])
+                                                      0.532     7.640 r  uut/p_reg[3]_i_2/CO[3]
+                         net (fo=1, routed)           0.000     7.640    uut/p_reg[3]_i_2_n_0
+    SLICE_X62Y62         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     7.754 r  uut/p_reg[7]_i_2/CO[3]
+                         net (fo=1, routed)           0.000     7.754    uut/p_reg[7]_i_2_n_0
+    SLICE_X62Y63         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     7.868 r  uut/p_reg[11]_i_2/CO[3]
+                         net (fo=1, routed)           0.000     7.868    uut/p_reg[11]_i_2_n_0
+    SLICE_X62Y64         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     7.982 r  uut/p_reg[15]_i_2/CO[3]
+                         net (fo=1, routed)           0.000     7.982    uut/p_reg[15]_i_2_n_0
+    SLICE_X62Y65         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     8.096 r  uut/p_reg[19]_i_2/CO[3]
+                         net (fo=1, routed)           0.000     8.096    uut/p_reg[19]_i_2_n_0
+    SLICE_X62Y66         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     8.210 r  uut/p_reg[23]_i_2/CO[3]
+                         net (fo=1, routed)           0.000     8.210    uut/p_reg[23]_i_2_n_0
+    SLICE_X62Y67         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     8.324 r  uut/p_reg[27]_i_2/CO[3]
+                         net (fo=1, routed)           0.000     8.324    uut/p_reg[27]_i_2_n_0
+    SLICE_X62Y68         CARRY4 (Prop_carry4_CI_O[0])
+                                                      0.222     8.546 r  uut/p_reg[30]_i_2/O[0]
+                         net (fo=1, routed)           1.078     9.623    uut/remainder_out0[28]
+    SLICE_X63Y67         LUT3 (Prop_lut3_I0_O)        0.327     9.950 r  uut/p[28]_i_1/O
+                         net (fo=1, routed)           0.000     9.950    uut/p[28]_i_1_n_0
+    SLICE_X63Y67         FDRE                                         r  uut/p_reg[28]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock gclk rise edge)      10.000    10.000 r  
+    N15                                               0.000    10.000 r  clk_100mhz (IN)
+                         net (fo=0)                   0.000    10.000    clk_100mhz
+    N15                  IBUF (Prop_ibuf_I_O)         1.370    11.370 r  clk_100mhz_IBUF_inst/O
+                         net (fo=1, routed)           1.868    13.238    clk_100mhz_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    13.329 r  clk_100mhz_IBUF_BUFG_inst/O
+                         net (fo=212, routed)         1.501    14.830    uut/clk_100mhz_IBUF_BUFG
+    SLICE_X63Y67         FDRE                                         r  uut/p_reg[28]/C
+                         clock pessimism              0.271    15.101    
+                         clock uncertainty           -0.035    15.065    
+    SLICE_X63Y67         FDRE (Setup_fdre_C_D)        0.075    15.140    uut/p_reg[28]
+  -------------------------------------------------------------------
+                         required time                         15.140    
+                         arrival time                          -9.950    
+  -------------------------------------------------------------------
+                         slack                                  5.190    
+
+
+
+
